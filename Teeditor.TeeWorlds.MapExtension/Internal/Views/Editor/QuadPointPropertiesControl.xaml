@@ -1,0 +1,281 @@
+﻿<UserControl
+    x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Editor.QuadPointPropertiesControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Teeditor.TeeWorlds.MapExtension.Internal.Views.Editor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:models="using:Teeditor.TeeWorlds.MapExtension.Internal.Models.Data"
+    xmlns:ap="using:Teeditor.Common.AttachedProperties"
+    xmlns:helpers="using:Teeditor.Common.Helpers"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="400">
+
+    <StackPanel>
+        <Grid x:Name="CenterPointGrid" MinWidth="180" MaxWidth="200" x:Load="{x:Bind ViewModel.IsCenterPoint, Mode=OneWay}">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="0" Grid.Row="0" Margin="0,0,1,1" Padding="10,6,0,7">
+                <TextBlock Text="Position X" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="0" Margin="0,0,0,1">
+                <TextBox Text="{x:Bind ViewModel.Point.PositionX, Mode=TwoWay}" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="1" Margin="0,0,1,1" Padding="10,6,0,7">
+                <TextBlock Text="Position Y" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="1" Margin="0,0,0,1">
+                <TextBox Text="{x:Bind ViewModel.Point.PositionY, Mode=TwoWay}" />
+            </Border>
+
+            <ItemsControl x:Name="AllEnvelopesPlug" ItemsSource="{x:Bind ViewModel.Envelopes}" ap:ItemsIndexer.IsEnable="True" Visibility="Collapsed" />
+
+            <Border Grid.Row="2" Grid.ColumnSpan="2" Background="{ThemeResource AdditionalWhiteTransparent1}" Padding="10,8,10,10" Margin="0,5,0,10">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="34" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Color Envelope:" Grid.Row="0" Grid.ColumnSpan="2" />
+
+                    <ComboBox Grid.Row="1" Grid.Column="0" PlaceholderText="None"
+                              ItemsSource="{x:Bind ViewModel.ColorEnvelopes}"
+                              HorizontalAlignment="Stretch" CornerRadius="0"
+                              SelectedItem="{x:Bind ViewModel.ColorEnvelope, Mode=TwoWay}">
+
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:MapEnvelope">
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock x:Name="EnvelopeName" Grid.Column="0" Text="{x:Bind Name, Mode=OneWay}" MaxWidth="100" MaxHeight="20" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" LineStackingStrategy="MaxHeight" TextLineBounds="Full" />
+
+                                    <TextBlock x:Name="EnvelopeIndex" Grid.Column="1" Text="{x:Bind EnvelopeIndex.(ap:ItemsIndexer.Index), Mode=OneWay}" ap:ItemsIndexer.ItemsCollectionName="AllEnvelopesPlug" ap:ItemsIndexer.NumeroSignText="#" ap:ItemsIndexer.Mode="FromOne" />
+                                </Grid>
+
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Button x:Name="ResetColorEnvelopeBtn" Grid.Row="1" Grid.Column="1"
+                            Style="{StaticResource CommonButtonStyle}" 
+                            Click="ResetColorEnvelopeBtn_Click">
+                        <Button.Content>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE711;" FontSize="11" />
+                        </Button.Content>
+                    </Button>
+
+                    <TextBlock Text="Position Envelope:" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+                    <ComboBox Grid.Row="4" Grid.Column="0" PlaceholderText="None" ItemsSource="{x:Bind ViewModel.PositionEnvelopes}" 
+                              HorizontalAlignment="Stretch" CornerRadius="0" 
+                              SelectedItem="{x:Bind ViewModel.PositionEnvelope, Mode=TwoWay}">
+
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:MapEnvelope">
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock x:Name="EnvelopeName" Grid.Column="0" Text="{x:Bind Name, Mode=OneWay}" MaxWidth="100" MaxHeight="20" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" LineStackingStrategy="MaxHeight" TextLineBounds="Full" />
+
+                                    <TextBlock x:Name="EnvelopeIndex" Grid.Column="1" Text="{x:Bind EnvelopeIndex.(ap:ItemsIndexer.Index), Mode=OneWay}" ap:ItemsIndexer.ItemsCollectionName="AllEnvelopesPlug" ap:ItemsIndexer.NumeroSignText="#" ap:ItemsIndexer.Mode="FromOne" />
+                                </Grid>
+
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Button x:Name="ResetPositionEnvelopeBtn" Grid.Row="4" Grid.Column="1"
+                            Style="{StaticResource CommonButtonStyle}" Click="ResetPositionEnvelopeBtn_Click">
+                        <Button.Content>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                      Glyph="&#xE711;" FontSize="11" />
+                        </Button.Content>
+                    </Button>
+                </Grid>
+
+            </Border>
+
+
+            <Button Name="AspectBtn" Content="Aspect Ratio" 
+                    Grid.Row="4" Grid.ColumnSpan="2"
+                    Margin="0,0,0,5"
+                    Style="{StaticResource CommonButtonStyle}"
+                    IsEnabled="{x:Bind ViewModel.IsAspectRatioAvailable, Mode=OneWay}"
+                    Click="AspectBtn_Click"/>
+
+            <Button Name="CenterBtn" Content="Center Pivot"
+                    Grid.Row="5" Grid.ColumnSpan="2"
+                    Margin="0,0,0,5"
+                    Style="{StaticResource CommonButtonStyle}"
+                    Click="CenterBtn_Click"/>
+
+            <Button Name="SquareBtn" Content="Square" 
+                    Grid.Row="6" Grid.ColumnSpan="2"
+                    Margin="0,0,0,5"
+                    Style="{StaticResource CommonButtonStyle}"
+                    Click="SquareBtn_Click"/>
+
+            <Button Name="RemoveBtn" Content="Remove Quad" 
+                    Grid.Row="7" Grid.ColumnSpan="2"
+                    Margin="0,0,0,5"
+                    Style="{StaticResource CommonButtonStyle}" 
+                    Click="RemoveBtn_Click"/>
+
+        </Grid>
+
+        <Grid x:Name="PerimeterPointGrid" MinWidth="180" MaxWidth="200" x:Load="{x:Bind ViewModel.IsPerimeterPoint, Mode=OneWay}">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="0" Grid.Row="0" Margin="0,0,1,1" Padding="10,6,0,7">
+                <TextBlock Text="Position X" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="0" Margin="0,0,0,1">
+                <TextBox Text="{x:Bind ViewModel.Point.PositionX, Mode=TwoWay}" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="1" Margin="0,0,1,1" Padding="10,6,0,7">
+                <TextBlock Text="Position Y" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="1" Margin="0,0,0,1">
+                <TextBox Text="{x:Bind ViewModel.Point.PositionY, Mode=TwoWay}" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="2" Margin="0,0,1,1" Padding="10,6,0,7">
+                <TextBlock Text="Texture X" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="2" Margin="0,0,0,1">
+                <TextBox Text="{x:Bind ViewModel.Point.TextureX, Mode=TwoWay}" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="3" Margin="0,0,1,1" Padding="10,6,0,7">
+                <TextBlock Text="Texture Y" />
+            </Border>
+            <Border Grid.Column="1" Grid.Row="3" Margin="0,0,0,1">
+                <TextBox Text="{x:Bind ViewModel.Point.TextureY, Mode=TwoWay}" />
+            </Border>
+
+            <Border Grid.Row="4" Grid.ColumnSpan="2" Background="{ThemeResource AdditionalWhiteTransparent1}" Padding="10,8,10,10" Margin="0,5,0,10">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Color:" Grid.Row="0" />
+                
+                    <Border Grid.Row="1" Height="34">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="34" />
+                                <ColumnDefinition Width="34" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid x:Name="ColorSelectorBackground" Grid.Column="0" Padding="9,8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{ThemeResource SystemChromeAltHighColor}">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Gray" />
+                                <Rectangle Grid.Row="0" Grid.Column="1" Fill="White" />
+                                <Rectangle Grid.Row="0" Grid.Column="2" Fill="Gray" />
+                                <Rectangle Grid.Row="0" Grid.Column="3" Fill="White" />
+
+                                <Rectangle Grid.Row="1" Grid.Column="0" Fill="White" />
+                                <Rectangle Grid.Row="1" Grid.Column="1" Fill="Gray" />
+                                <Rectangle Grid.Row="1" Grid.Column="2" Fill="White" />
+                                <Rectangle Grid.Row="1" Grid.Column="3" Fill="Gray" />
+
+                            </Grid>
+
+                            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Padding="9,8">
+
+                                <Button.Content>
+                                    <Rectangle Fill="{x:Bind helpers:DataConverterHelper.ColorToBrush(ViewModel.Point.Color), Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                                </Button.Content>
+
+                                <Button.Flyout>
+                                    <Flyout Placement="RightEdgeAlignedBottom">
+                                        <muxc:ColorPicker Color="{x:Bind ViewModel.Point.Color, Mode=TwoWay}" ColorSpectrumShape="Box" IsMoreButtonVisible="True" IsColorSliderVisible="True" IsColorChannelTextInputVisible="True" IsHexInputVisible="True" IsAlphaEnabled="True" IsAlphaSliderVisible="True" IsAlphaTextInputVisible="True" />
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+
+                            <Button x:Name="ResetColorBtn" Grid.Column="2" Style="{StaticResource CommonButtonStyle}" Click="ResetColorBtn_Click">
+                                <Button.Content>
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE711;" FontSize="11" />
+                                </Button.Content>
+                            </Button>
+
+                            <Button x:Name="PickColorBtn" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="PickColorBtn_Click">
+                                <Button.Content>
+                                    <PathIcon Data="{StaticResource ResourceKey=ColorPickerIconPath}" />
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </StackPanel>
+</UserControl>

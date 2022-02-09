@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="Teeditor.Views.SidebarControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid x:Name="MainGrid" Background="{ThemeResource SidebarBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="ItemsGrid" Grid.Column="0" Margin="0,5"/>
+
+        <Rectangle x:Name="VerticalSplitter" Grid.Column="0" Width="5" 
+                   Fill="Transparent" 
+                   PointerExited="VerticalSplitter_OnPointerExited"
+                   PointerEntered="VerticalSplitter_OnPointerEntered"
+                   ManipulationStarting="VerticalSplitter_OnManipulationStarting" 
+                   ManipulationDelta="VerticalSplitter_OnManipulationDelta"
+                   ManipulationCompleted="VerticalSplitter_OnManipulationCompleted" 
+                   ManipulationMode="TranslateX"/>
+
+        <Rectangle x:Name="DropPlace" Grid.Column="0" 
+                   Fill="{ThemeResource SystemAccentColorLight2}" Stroke="{ThemeResource SystemAccentColorLight1}" StrokeThickness="2" 
+                   Width="8" 
+                   Visibility="Collapsed"
+                   AllowDrop="True" Drop="DropPlace_Drop" DragEnter="DropPlace_DragEnter" DragLeave="DropPlace_DragLeave" DragOver="DropPlace_DragOver"/>
+
+    </Grid>
+    
+</UserControl>

@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="Teeditor.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:views="using:Teeditor.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:vm="using:Teeditor.ViewModels" d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource RegionBrush}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="LeftSidebar" Width="Auto"/>
+            <ColumnDefinition x:Name="CenterContent" Width="*"/>
+            <ColumnDefinition x:Name="RightSidebar" Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="TitleBar" Grid.ColumnSpan="3" Background="{ThemeResource SystemChromeBlackMediumLowColor}">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
+                <ColumnDefinition/>
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image Source="Assets/Square44x44Logo.png"
+               Grid.Column="1" HorizontalAlignment="Left"
+               Width="20" Height="20" Margin="12,0"/>
+            
+        </Grid>
+
+        <views:MainMenuControl x:Name="MainMenu" Grid.ColumnSpan="3"/>
+
+        <views:TabsControl x:Name="Tabs" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+
+        <views:SidebarControl x:Name="SidebarLeft" Grid.Row="2" Grid.RowSpan="2"
+                                Dock="Left"
+                                Grid.Column="0"/>
+
+        <Grid Grid.Row="2" Grid.Column="1" Margin="0,5,0,0">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <views:ToolbarControl x:Name="Toolbar" Grid.Row="0" />
+
+            <views:EditorControl x:Name="Editor" Grid.Row="1"/>
+            
+        </Grid>
+
+        <views:SidebarControl x:Name="SidebarRight" Grid.Row="2" Grid.RowSpan="2"
+                                Dock="Right"
+                                Grid.Column="2"/>
+
+        <views:PanelbarControl x:Name="Panelbar" Grid.Row="3" Grid.Column="1"/>
+
+        <muxc:ProgressBar x:Name="ProgressBar" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" 
+                            Background="Transparent" 
+                            IsIndeterminate="{x:Bind ViewModel.IsLoading, Mode=OneWay}" 
+                            ShowPaused="false" ShowError="false" />
+    </Grid>
+</Page>

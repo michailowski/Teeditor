@@ -1,0 +1,47 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="ms-appx:///Resources/Theme.xaml"/>
+
+        <!--#region Common Resources-->
+        <ResourceDictionary Source="ms-appx:///Resources/Common/CommonButtonStyles.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Common/CommonToggleButtonStyles.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Common/CommonTransparentButtonStyles.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Common/CommonScrollViewerStyles.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Common/CommonTextBoxStyles.xaml" />
+        <ResourceDictionary Source="ms-appx:///Resources/Common/CommonFlyoutStyles.xaml" />
+        <ResourceDictionary Source="ms-appx:///Resources/Common/CommonComboBoxStyles.xaml" />
+        <!--#endregion-->
+
+        <!--#region Main Menu Resources-->
+        <ResourceDictionary Source="ms-appx:///Resources/MainMenu/MainMenuIcons.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/MainMenu/MainMenuStyles.xaml"/>
+        <!--#endregion-->
+
+        <!--#region Sidebar Resources-->
+        <ResourceDictionary Source="ms-appx:///Resources/Sidebar/SidebarIcons.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Sidebar/SidebarStyles.xaml" />
+        <ResourceDictionary Source="ms-appx:///Resources/Sidebar/SidebarBoxHeaderButtonStyles.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Sidebar/SidebarGridSplitterStyles.xaml"/>
+        <!--#endregion-->
+
+        <!--#region Toolbar Resources-->
+        <ResourceDictionary Source="ms-appx:///Resources/Toolbar/ToolbarIcons.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Toolbar/ToolbarStyles.xaml" />
+        <ResourceDictionary Source="ms-appx:///Resources/Toolbar/ToolbarButtonStyles.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Resources/Toolbar/ToolbarToggleButtonStyles.xaml"/>
+        <!--#endregion-->
+
+        <!--#region Panelbar Resources-->
+        <ResourceDictionary Source="ms-appx:///Resources/Panelbar/PanelbarListViewStyles.xaml"/>
+        <!--#endregion-->
+
+        <!--#region Dialogs Resources-->
+        <ResourceDictionary Source="ms-appx:///Resources/Dialogs/ProjectCreateDialogListViewStyles.xaml"/>
+        <!--#endregion-->
+
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>

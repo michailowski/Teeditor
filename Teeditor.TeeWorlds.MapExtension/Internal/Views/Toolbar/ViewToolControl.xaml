@@ -1,0 +1,66 @@
+﻿<toolbar:ToolControl
+    xmlns:toolbar="using:Teeditor.Common.Views.Toolbar"
+    x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Toolbar.ViewToolControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="37"
+    d:DesignWidth="400">
+
+    <StackPanel Orientation="Horizontal">
+        
+        <ToggleButton x:Name="HighDetailToggleBtn"
+                        Style="{StaticResource ToolbarToggleButtonStyle}"
+                        ToolTipService.ToolTip="Toggle High Detail (Ctrl+Shift+H)"
+                        IsChecked="{x:Bind ViewModel.IsHighDetailEnabled, Mode=TwoWay, FallbackValue='True'}">
+            
+            <ToggleButton.Content>
+                <PathIcon Data="{StaticResource ResourceKey=HighDetailToggleBtnIconPath}"/>
+            </ToggleButton.Content>
+
+            <ToggleButton.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Modifiers="Control,Shift"
+                    Key="H" />
+            </ToggleButton.KeyboardAccelerators>
+
+        </ToggleButton>
+
+        <ToggleButton x:Name="ProofBordersToggleBtn"
+                        Style="{StaticResource ToolbarToggleButtonStyle}"
+                        ToolTipService.ToolTip="Toggle Proof Borders (Ctrl+Shift+P)"
+                        IsChecked="{x:Bind ViewModel.IsProofBordersEnabled, Mode=TwoWay, FallbackValue='False'}">
+            
+            <ToggleButton.Content>
+                <PathIcon Data="{StaticResource ResourceKey=ProofBordersToggleBtnIconPath}"/>
+            </ToggleButton.Content>
+
+            <ToggleButton.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Modifiers="Control,Shift"
+                    Key="P" />
+            </ToggleButton.KeyboardAccelerators>
+
+        </ToggleButton>
+
+        <ToggleButton x:Name="GridToggleBtn"
+                        Style="{StaticResource ToolbarToggleButtonStyle}"
+                        ToolTipService.ToolTip="Toggle Grid (Ctrl+Shift+G)"
+                        IsChecked="{x:Bind ViewModel.IsGridEnabled, Mode=TwoWay, FallbackValue='False'}">
+            
+            <ToggleButton.Content>
+                <PathIcon Data="{StaticResource ResourceKey=GridToggleBtnIconPath}"/>
+            </ToggleButton.Content>
+
+            <ToggleButton.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Modifiers="Control,Shift"
+                    Key="G" />
+            </ToggleButton.KeyboardAccelerators>
+
+        </ToggleButton>
+
+    </StackPanel>
+</toolbar:ToolControl>

@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region Common Box Icons-->
+    <x:String x:Key="DockChangeIconPath">M0 0 1 0 1 15 14 15 14 1 1 1 1 0 15 0 15 16 0 16M10 9 5 9 6 7 5 7 3 9 3 10 5 12 6 12 5 10 10 10 9 12 10 12 12 10 12 9 10 7 9 7M1 4 14 4 14 3 1 3</x:String>
+    <x:String x:Key="MoveUpBoxIconPath">M0 16 1 16 1 1 14 1 14 15 1 15 1 16 15 16 15 0 0 0M8 8 8 13 7 13 7 8 5 9 5 8 7 6 8 6 10 8 10 9M1 3 14 3 14 4 1 4</x:String>
+    <x:String x:Key="MoveDownBoxIconPath">M0 0 1 0 1 15 14 15 14 1 1 1 1 0 15 0 15 16 0 16M8 11 8 6 7 6 7 11 5 10 5 11 7 13 8 13 10 11 10 10M1 4 14 4 14 3 1 3</x:String>
+    <!--#endregion-->
+
+</ResourceDictionary>

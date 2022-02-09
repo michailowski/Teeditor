@@ -1,0 +1,98 @@
+﻿<toolbar:ToolControl
+    xmlns:toolbar="using:Teeditor.Common.Views.Toolbar"
+    x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Toolbar.CameraToolControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="37"
+    d:DesignWidth="400">
+
+    <StackPanel Orientation="Horizontal">
+
+        <Button x:Name="ResetCameraPositionBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Reset Camera Position (Ctrl+Shift+P)"
+                Click="ResetCameraPositionBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=ResetCameraPositionBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Modifiers="Control,Shift"
+                    Key="P" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+        <Button x:Name="ResetCameraZoomBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Reset Camera Zoom (Ctrl+Shift+Z)"
+                Click="ResetCameraZoomBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=ResetCameraZoomBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Modifiers="Control,Shift"
+                    Key="Z" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+        
+        <Button x:Name="CameraZoomInBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Camera Zoom In (+)"
+                Click="CameraZoomInBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=CameraZoomInBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator
+                    Key="Add" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+        
+        <Button x:Name="CameraZoomOutBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Camera Zoom Out (-)"
+                Click="CameraZoomOutBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=CameraZoomOutBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Key="Subtract" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+        <Button x:Name="ShowBookmarksMenuBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Add Camera View Bookmark (Ctrl+Shift+B)"
+                Click="ShowBookmarksMenuBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=ShowBookmarksMenuBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Modifiers="Control,Shift"
+                    Key="B" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+    </StackPanel>
+</toolbar:ToolControl>

@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F6AFA4F-C059-4BC7-8ED7-BA0E1D68A41F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Teeditor.TeeWorlds.MapExtension</RootNamespace>
+    <AssemblyName>Teeditor.TeeWorlds.MapExtension</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Internal\Behaviors\GroupItemListViewBehavior.cs" />
+    <Compile Include="Internal\Behaviors\GroupsListViewBehavior.cs" />
+    <Compile Include="Internal\Behaviors\LayerItemListViewBehavior.cs" />
+    <Compile Include="Internal\Behaviors\LayersListViewBehavior.cs" />
+    <Compile Include="Internal\Models\Data\Logic\ImageLoadedData.cs" />
+    <Compile Include="Internal\Models\Logic\Commands\TilesPaintCommand.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapVersionDTO.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapQuadsLayerDTO.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapTilesLayerDTO.cs" />
+    <Compile Include="Internal\Enumerations\EnvelopeType.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapEnvelopeFactory.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapEnvelopePointPositionFactory.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapEnvelopePointColorFactory.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapFactory.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadEnvelopeAddingStrategy.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadEnvelopePointAddingStrategy.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadQuadsLayerAddingStrategy.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadTilesLayerAddingStrategy.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadGroupAddingStrategy.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadImageAddingStrategy.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadInfoAddingStrategy.cs" />
+    <Compile Include="Internal\Enumerations\LayerBaseFlags.cs" />
+    <Compile Include="Internal\Enumerations\TilesLayerFlags.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapGroupFactory.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapQuadsLayerFactory.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapTilesLayerFactory.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\MapFilePayload.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\MapFilePayloadItems.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\MapFilePayloadPartAddingStrategy.cs" />
+    <Compile Include="Internal\DataTransferObjects\IMapItemDTO.cs" />
+    <Compile Include="Internal\Enumerations\ImageFormat.cs" />
+    <Compile Include="Internal\Enumerations\ItemCurrentVersion.cs" />
+    <Compile Include="Internal\Enumerations\KeyframeBoostingDirection.cs" />
+    <Compile Include="Internal\Utilities\CompressionUtilities.cs" />
+    <Compile Include="Internal\Utilities\StringUtilities.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapImageFactory.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapInfoFactory.cs" />
+    <Compile Include="Internal\Models\Data\Factories\MapItemFactory.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\MapFilePayloadData.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\MapFilePayloadBuilder.cs" />
+    <Compile Include="Internal\Models\Data\IO\MapFileReader.cs" />
+    <Compile Include="Internal\Models\Data\IO\MapFileWriter.cs" />
+    <Compile Include="Internal\Models\Data\IO\Payload\Strategies\MapFilePayloadVersionAddingStrategy.cs" />
+    <Compile Include="Internal\Models\Data\Logic\EnvelopesContainer.cs" />
+    <Compile Include="Internal\Models\Data\Logic\GroupLayerPair.cs" />
+    <Compile Include="Internal\Models\Data\Logic\EnvelopeCarrierChangedEventArgs.cs" />
+    <Compile Include="Internal\Models\Data\Logic\ImageCarrierChangedEventArgs.cs" />
+    <Compile Include="Internal\Models\Data\Logic\ImageLoader.cs" />
+    <Compile Include="Internal\Models\Data\Logic\ImagesContainer.cs" />
+    <Compile Include="Internal\Models\Data\Logic\GroupedLayersContainer.cs" />
+    <Compile Include="Internal\Models\Data\Logic\QuadsPacker.cs" />
+    <Compile Include="Internal\Models\Data\Logic\TilesPacker.cs" />
+    <Compile Include="Internal\Models\Data\Logic\VisualChangedEventArgs.cs" />
+    <Compile Include="Internal\Models\Data\Map.cs" />
+    <Compile Include="Internal\Models\Data\MapEnvelopePointColor.cs" />
+    <Compile Include="Internal\Models\Data\MapEnvelopePointPosition.cs" />
+    <Compile Include="Internal\Models\Data\MapItem.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapEnvelopeObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapEnvPointColorObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapEnvPointPositionObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapGroupObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapTilesLayerObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapImageObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapInfoObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapQuadObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapQuadPointObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\ModificationObserver\MapQuadsLayerObservingStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\Panelbar\Animation\CurveTypeContainer.cs" />
+    <Compile Include="Internal\Models\Logic\Panelbar\Animation\EnvelopesDrawer.cs" />
+    <Compile Include="Internal\Models\Logic\Panelbar\Animation\EnvelopeSegmentChanel.cs" />
+    <Compile Include="Internal\Models\Logic\Panelbar\Animation\Keyframe.cs" />
+    <Compile Include="Internal\Models\Logic\Panelbar\Animation\KeyframeTranslator.cs" />
+    <Compile Include="Internal\Models\Logic\Panelbar\Animation\EnvelopeSegment.cs" />
+    <Compile Include="Internal\Models\Logic\Panelbar\Animation\TimelineDrawer.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Drawers\DrawingTaskArgs.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Drawers\QuadsLayerDrawingArgs.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Drawers\TilesLayerDrawingArgs.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\ExplorerSelectionSnapshot.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\SceneTimer.cs" />
+    <Compile Include="Internal\Models\Logic\ComponentsManager.cs" />
+    <Compile Include="Internal\Models\Logic\PanelbarManager.cs" />
+    <Compile Include="Internal\Models\Data\MapEnvelope.cs" />
+    <Compile Include="Internal\Models\Data\MapEnvelopePoint.cs" />
+    <Compile Include="Internal\Models\Data\MapGroup.cs" />
+    <Compile Include="Internal\Models\Data\MapImage.cs" />
+    <Compile Include="Internal\Models\Data\MapInfo.cs" />
+    <Compile Include="Internal\Models\Data\MapLayer.cs" />
+    <Compile Include="Internal\Models\Data\MapQuad.cs" />
+    <Compile Include="Internal\Models\Data\MapQuadPoint.cs" />
+    <Compile Include="Internal\Models\Data\MapQuadsLayer.cs" />
+    <Compile Include="Internal\Models\Data\MapTile.cs" />
+    <Compile Include="Internal\Models\Data\MapTilesLayer.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Drawers\ILayerDrawStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Drawers\QuadsLayerDrawStrategy.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Drawers\TilesLayerDrawStrategy.cs" />
+    <Compile Include="Internal\ViewModels\Editor\QuadPointPropertiesViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Panelbar\AnimationPanelViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Toolbar\AnimationToolViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Toolbar\QuadsLayerToolViewModel.cs" />
+    <Compile Include="Internal\Views\Editor\QuadPointPropertiesControl.xaml.cs">
+      <DependentUpon>QuadPointPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Panelbar\Animation\AnimationPanelControl.xaml.cs">
+      <DependentUpon>AnimationPanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Panelbar\Animation\EnvelopeSectionControl.xaml.cs">
+      <DependentUpon>EnvelopeSectionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Panelbar\Animation\TimeSpanControl.xaml.cs">
+      <DependentUpon>TimeSpanControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\ExplorerBoxControl.xaml.cs">
+      <DependentUpon>ExplorerBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\HistoryBoxControl.xaml.cs">
+      <DependentUpon>HistoryBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\ImagesBoxControl.xaml.cs">
+      <DependentUpon>ImagesBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\NavigatorBoxControl.xaml.cs">
+      <DependentUpon>NavigatorBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\PropertiesBox\MapCommonGroupPropertiesView.xaml.cs">
+      <DependentUpon>MapCommonGroupPropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\PropertiesBox\MapEnvelopePropertiesView.xaml.cs">
+      <DependentUpon>MapEnvelopePropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\PropertiesBox\MapGameLayerPropertiesView.xaml.cs">
+      <DependentUpon>MapGameLayerPropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\PropertiesBox\MapInfoPropertiesView.xaml.cs">
+      <DependentUpon>MapInfoPropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\PropertiesBox\MapQuadsLayerPropertiesView.xaml.cs">
+      <DependentUpon>MapQuadsLayerPropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\PropertiesBox\MapTilesLayerPropertiesView.xaml.cs">
+      <DependentUpon>MapTilesLayerPropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Sidebar\PropertiesBox\PropertiesBoxControl.xaml.cs">
+      <DependentUpon>PropertiesBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Toolbar\QuadsLayerToolControl.xaml.cs">
+      <DependentUpon>QuadsLayerToolControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Toolbar\LayerSelectionToolControl.xaml.cs">
+      <DependentUpon>LayerSelectionToolControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Toolbar\CameraToolControl.xaml.cs">
+      <DependentUpon>CameraToolControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Toolbar\AnimationToolControl.xaml.cs">
+      <DependentUpon>AnimationToolControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Views\Toolbar\ViewToolControl.xaml.cs">
+      <DependentUpon>ViewToolControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\DataTransferObjects\MapEnvelopeDTO.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapEnvelopePointDTO.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapGroupDTO.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapImageDTO.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapInfoDTO.cs" />
+    <Compile Include="Internal\DataTransferObjects\MapLayerDTO.cs" />
+    <Compile Include="Internal\Views\Dialogs\AddBookmarkDialog.xaml.cs">
+      <DependentUpon>AddBookmarkDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Models\Data\Logic\ILayerSelection.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\SceneCamera.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\PropertiesManagerSceneAdapter.cs" />
+    <Compile Include="Internal\Models\Data\Logic\LayersSelectionsManager.cs" />
+    <Compile Include="Internal\Models\Data\Logic\QuadsLayerSelection.cs" />
+    <Compile Include="Internal\Models\Data\Logic\TilesLayerSelection.cs" />
+    <Compile Include="Internal\Models\Logic\Tab.cs" />
+    <Compile Include="Internal\Enumerations\BrushState.cs" />
+    <Compile Include="Internal\Enumerations\CurveType.cs" />
+    <Compile Include="Internal\Enumerations\ItemType.cs" />
+    <Compile Include="Internal\Enumerations\LayerType.cs" />
+    <Compile Include="Internal\Enumerations\TileDirectionOfRotation.cs" />
+    <Compile Include="Internal\Enumerations\TileIndex.cs" />
+    <Compile Include="Internal\Enumerations\TileProperties.cs" />
+    <Compile Include="Internal\Utilities\CalcUtilities.cs" />
+    <Compile Include="Internal\Utilities\HighResolutionTimer.cs" />
+    <Compile Include="Internal\Utilities\RenderingUtilities.cs" />
+    <Compile Include="Internal\Models\Data\IO\MapFile.cs" />
+    <Compile Include="Internal\Models\Data\IO\MapFileHeader.cs" />
+    <Compile Include="Internal\Models\Data\IO\InputItemInfo.cs" />
+    <Compile Include="Api\MapTabFactory.cs" />
+    <Compile Include="Internal\Models\Logic\PropertiesManager.cs" />
+    <Compile Include="Internal\Models\Logic\SidebarManager.cs" />
+    <Compile Include="Internal\Models\Logic\ToolbarManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Scenes\LayerOverlayScene.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Scenes\LayersScene.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\MapSceneManager.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Scenes\QuadsLayerOverlayScene.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Scenes\TilesLayerOverlayScene.cs" />
+    <Compile Include="Internal\Models\Logic\SceneManager\Scenes\TilesPaletteScene.cs" />
+    <Compile Include="Internal\ViewModels\Dialogs\AddBookmarkDialogViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\IPropertiesBoxItemViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\MapCommonGroupPropertiesViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\MapGameLayerPropertiesViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\MapEnvelopePropertiesViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\MapInfoPropertiesViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\MapQuadsLayerPropertiesViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\MapTilesLayerPropertiesViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Toolbar\LayerSelectionToolViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\ExplorerBoxViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\HistoryBoxViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\ImagesBoxViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\PropertiesBox\PropertiesBoxViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Sidebar\NavigatorBoxViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Toolbar\CameraToolViewModel.cs" />
+    <Compile Include="Internal\ViewModels\Toolbar\ViewToolViewModel.cs" />
+    <EmbeddedResource Include="Properties\Teeditor.TeeWorlds.MapExtension.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Iconic.Zlib.NetstandardUwp">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.13</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Behaviors">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Media">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.8.0-prerelease.210927001</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.26.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Internal\Assets\GameEntities\default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Internal\Assets\DefaultTilesets\winter_mountains3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\winter_mountains2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\winter_mountains.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\winter_main.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\winter_doodads.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\sun.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\stars.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\snow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\mountains.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\moon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\jungle_unhookables.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\jungle_midground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\jungle_main.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\jungle_doodads_old.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\jungle_doodads.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\jungle_deathtiles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\jungle_background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\grass_main.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\grass_doodads.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\generic_unhookable.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\generic_shadows.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\generic_lamps.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\generic_deathtiles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\desert_sun.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\desert_mountains2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\desert_mountains.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\desert_main.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\desert_doodads.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\bg_cloud3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\bg_cloud2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Internal\Assets\DefaultTilesets\bg_cloud1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Teeditor.Common\Teeditor.Common.csproj">
+      <Project>{a85e6071-a61b-4b24-8f14-7ef05c5aa19d}</Project>
+      <Name>Teeditor.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Teeditor.Direct3DInterop\Teeditor.Direct3DInterop.vcxproj">
+      <Project>{433bcc86-ba8d-4b67-8eca-0c38c70a64d9}</Project>
+      <Name>Teeditor.Direct3DInterop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Teeditor.TeeWorlds.Direct3DInterop\Teeditor.TeeWorlds.Direct3DInterop.vcxproj">
+      <Project>{eaa262c7-55c2-4099-a8e8-c67d96e8bce3}</Project>
+      <Name>Teeditor.TeeWorlds.Direct3DInterop</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Internal\Resources\MainMenu\MainMenuIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Internal\Resources\MergedResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="Internal\Resources\Panelbar\PanelbarIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="Internal\Resources\Sidebar\SidebarIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Content Include="Internal\Resources\Toolbar\ToolbarIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
+    <Page Include="Internal\Resources\Panelbar\AnimationPanelScrollViewerStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Resources\Panelbar\AnimationPanelStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Resources\Panelbar\TimeSpanStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Resources\Sidebar\ExplorerBoxToggleButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Resources\Sidebar\NavigatorBoxSliderStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Resources\Sidebar\SidebarStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Editor\QuadPointPropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Panelbar\Animation\AnimationPanelControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Panelbar\Animation\EnvelopeSectionControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Panelbar\Animation\TimeSpanControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\ExplorerBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\HistoryBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\ImagesBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\NavigatorBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\PropertiesBox\MapCommonGroupPropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\PropertiesBox\MapEnvelopePropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\PropertiesBox\MapGameLayerPropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\PropertiesBox\MapInfoPropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\PropertiesBox\MapQuadsLayerPropertiesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\PropertiesBox\MapTilesLayerPropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Sidebar\PropertiesBox\PropertiesBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Toolbar\QuadsLayerToolControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Toolbar\LayerSelectionToolControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Toolbar\CameraToolControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Toolbar\AnimationToolControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Views\Toolbar\ViewToolControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Internal\Views\Dialogs\AddBookmarkDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internal\Resources\Sidebar\ExplorerBoxListViewStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

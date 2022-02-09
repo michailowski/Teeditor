@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Panelbar.Animation.TimeSpanControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:formatters="using:Windows.Globalization.NumberFormatting"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/Panelbar/TimeSpanStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <formatters:DecimalFormatter x:Key="HoursFormatter" IntegerDigits="2" FractionDigits="0"/>
+            <formatters:DecimalFormatter x:Key="MinutesFormatter" IntegerDigits="2" FractionDigits="0"/>
+            <formatters:DecimalFormatter x:Key="SecondsFormatter" IntegerDigits="2" FractionDigits="0"/>
+            <formatters:DecimalFormatter x:Key="MillisecondsFormatter" IntegerDigits="3" FractionDigits="0"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <muxc:NumberBox x:Name="HoursBox" Style="{StaticResource TimeNumberBoxStyle}"
+                            Value="{x:Bind Value.Hours, Mode=OneWay}" ValueChanged="HoursBox_ValueChanged"
+                            Maximum="24" Minimum="0" NumberFormatter="{StaticResource HoursFormatter}" />
+
+            <TextBlock Text=":" Margin="-3,0,0,0"/>
+
+            <muxc:NumberBox x:Name="MinutesBox" Style="{StaticResource TimeNumberBoxStyle}"
+                            Value="{x:Bind Value.Minutes, Mode=OneWay}" ValueChanged="MinutesBox_ValueChanged"
+                            Maximum="59" Minimum="0" NumberFormatter="{StaticResource MinutesFormatter}" />
+
+            <TextBlock Text=":" Margin="-3,0,0,0"/>
+            
+            <muxc:NumberBox x:Name="SecondsBox"
+                            Style="{StaticResource TimeNumberBoxStyle}"
+                            Value="{x:Bind Value.Seconds, Mode=OneWay}" ValueChanged="SecondsBox_ValueChanged"
+                            Maximum="59" Minimum="0" NumberFormatter="{StaticResource SecondsFormatter}" />
+
+            <TextBlock Text="." Margin="-3,0,0,0"/>
+
+            <muxc:NumberBox x:Name="MillisecondsBox" Style="{StaticResource TimeNumberBoxStyle}"
+                            Value="{x:Bind Value.Milliseconds, Mode=OneWay}" ValueChanged="MillisecondsBox_ValueChanged"
+                            Maximum="999" Minimum="0" NumberFormatter="{StaticResource MillisecondsFormatter}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

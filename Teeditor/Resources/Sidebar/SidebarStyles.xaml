@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="SidebarBackground" Color="{ThemeResource SystemChromeLowColor}" />
+    <SolidColorBrush x:Key="SidebarBoxBackground" Color="{ThemeResource SystemChromeLowColor}" />
+    <SolidColorBrush x:Key="SidebarBoxHeaderBackground" Color="{ThemeResource SystemChromeMediumColor}" />
+    <SolidColorBrush x:Key="SidebarBoxDropOverlayBackground" Color="{ThemeResource AdditionalColor4}" />
+
+</ResourceDictionary>

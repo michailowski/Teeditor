@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="97c76a95-69bf-475a-9e25-d9cfb75fd529"
+    Publisher="CN=smich"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="97c76a95-69bf-475a-9e25-d9cfb75fd529" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>Teeditor</DisplayName>
+    <PublisherDisplayName>smich</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Teeditor.App">
+      <uap:VisualElements
+        DisplayName="Teeditor"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="Teeditor"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen BackgroundColor="#7d4735" Image="Assets\splash-1.png" a:Optional="true" xmlns:a="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"/>
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/></uap:InitialRotationPreference>
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="map">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.map</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Teeditor</uap:DisplayName>
+            <uap:Logo>Assets\StoreLogo.png</uap:Logo>
+            <uap:InfoTip>TeeWorlds Map (open with Teeditor)</uap:InfoTip>
+            <uap:EditFlags OpenIsSafe="true"/>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+	 <rescap:Capability Name="confirmAppClose"/>
+  </Capabilities>
+</Package>

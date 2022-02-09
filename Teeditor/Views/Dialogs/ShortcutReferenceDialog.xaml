@@ -1,0 +1,375 @@
+﻿<ContentDialog
+    x:Class="Teeditor.Views.Dialogs.ShortcutReferenceDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Teeditor.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="34"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="CloseBtn" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" 
+                    Style="{StaticResource CommonButtonStyle}"
+                    Click="CloseBtn_Click">
+                <Button.Content>
+                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                      Glyph="&#xE711;" FontSize="11" />
+                </Button.Content>
+            </Button>
+
+            <TextBlock Text="Shortcut Reference" Grid.Row="0" Grid.Column="0" FontSize="22" FontWeight="Medium"/>
+
+            <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2" />
+            <TextBlock Text="Command" Grid.Row="1" Grid.Column="0" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Text="Shortcut [Special contexts]" Grid.Row="1" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"/>
+
+        </Grid>
+        
+        <ScrollViewer Grid.Row="1" MaxHeight="400" VerticalScrollBarVisibility="Visible" Style="{StaticResource CommonScrollViewerStyle}">
+            <StackPanel MinWidth="800">
+                
+                <Grid x:Name="File" Margin="0,20,0,25">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="File" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Create a new project" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + N" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Open a project" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + O" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Save a project" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + S" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="4" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Save all open projects" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + S" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <TextBlock Text="Exit" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Alt + F4" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+                <Grid x:Name="Edit" Margin="0,0,0,25">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Edit" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Undo command" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Z" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <TextBlock Text="Redo command" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Y" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+                <Grid x:Name="View" Margin="0,0,0,25">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="View" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Toggle high detail" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + H" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Toggle proof borders" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + P" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Toggle grid" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + G" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <TextBlock Text="Toggle fullscreen mode" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + F" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+                <Grid x:Name="Camera" Margin="0,0,0,25">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Camera" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Reset camera position" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + C" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Reset camera zoom" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + Z" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Add a camera view bookmark" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + B" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="4" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Zoom in" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="+" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="5" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Zoom out" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="-" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="6" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Move around the map" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Mouse Left Button Press" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <TextBlock Text="Move around the map" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Middle Button Press" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+                <Grid x:Name="TilesLayer" Margin="0,0,0,25">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Tiles layer" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Select tiles" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Left Button Press [Tiles Layer, Tiles Palette]" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Reset selection" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Right Button Click" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Paint with selected tiles" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Left Button Press [Tiles Layer]" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="4" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Flip selection vertically" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="M" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="5" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Flip selection horizontally" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="N" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="6" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Rotate selection counter clockwise" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="R" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="7" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Rotate selection clockwise" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="T" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <TextBlock Text="Show the current layer tile palette" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Space" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+                <Grid x:Name="QuadsLayer" Margin="0,0,0,25">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Quads layer" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Select point" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Left Button Click [Point]" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Select multiple points" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Left Button Press [Empty Area]" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Append points to selection" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Shift + Mouse Left Button Press [Empty Area] / Click [Point]" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="4" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Remove selected quads from layer" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Delete" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="5" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Deselect points" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Left Button Press [Empty Area]" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="6" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Moves the quad" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Left Button Press [Center Point]" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="7" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Moves the pivot (center point)" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Shift + Mouse Left Button Press [Center Point]" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="8" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Rotate quad" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Shift + R + Mouse Left Button Press [Center Point]" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="9" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Moves the perimeter point" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Left Button Press [Perimeter Point]" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="10" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Show the point flyout menu" Grid.Row="10" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Mouse Right Button Click [Point]" Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="11" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Moves the selected points to the nearest grid corners" Grid.Row="11" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Alt + Mouse Left Button Press [Point]" Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="12" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Copy selected quads" Grid.Row="12" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + C" Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <TextBlock Text="Paste selected quads at mouse cursor position" Grid.Row="13" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + V" Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+                <Grid x:Name="Explorer" Margin="0,0,0,25">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Explorer" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <TextBlock Text="Create a new group" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + G" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+                <Grid x:Name="Animation">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Animation" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20"/>
+
+                    <Border BorderThickness="0,0,0,1" BorderBrush="{ThemeResource SystemBaseLowColor}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Start/Pause animation timer" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + A" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                    <TextBlock Text="Reset animation timer" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Ctrl + Shift + R" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontWeight="Medium"/>
+
+                </Grid>
+
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ContentDialog>

@@ -1,0 +1,76 @@
+﻿<UserControl
+    x:Class="Teeditor.Views.Toolbar.Tools.MainToolControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="37"
+    d:DesignWidth="400">
+
+    <StackPanel Orientation="Horizontal" Background="{ThemeResource ToolbarToolBackground}">
+
+        <Border x:Name="DividerBorder" Grid.Column="1" Width="32" VerticalAlignment="Center" Margin="0,0,0,1">
+
+            <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Foreground="{ThemeResource ToolbarDividerForeground}"
+                    Data="{ThemeResource ResourceKey=ToolbarDividerIconPath}" Opacity="0.4"/>
+
+        </Border>
+
+        <Button x:Name="CreateProjectBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Create a new Project (Ctrl+N)"
+                MinWidth="37"
+                Click="CreateProjectBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=CreateProjectBtnIconPath}"/>
+            </Button.Content>
+
+        </Button>
+        
+        <Button x:Name="OpenProjectBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Open a Project (Ctrl+O)"
+                MinWidth="37"
+                Click="OpenProjectBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=OpenProjectBtnIconPath}"/>
+            </Button.Content>
+
+        </Button>
+
+        <Button x:Name="SaveBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Save (Ctrl+S)"
+                MinWidth="37"
+                Click="SaveBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=SaveBtnIconPath}"/>
+            </Button.Content>
+
+        </Button>
+
+        <Button x:Name="SaveAllBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Save All (Ctrl+Shift+S)"
+                MinWidth="37"
+                Click="SaveAllBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=SaveAllBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator 
+                    Modifiers="Control,Shift"
+                    Key="S" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+    </StackPanel>
+</UserControl>

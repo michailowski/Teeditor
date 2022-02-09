@@ -1,0 +1,66 @@
+﻿    body, html {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-family: Segoe UI,SegoeUI,Helvetica Neue,Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        background-color: #171717;
+    }
+
+    table.shortcut-table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        color: #e6e6e6;
+        font-size: small;
+        text-align: left;
+        vertical-align: top;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    table.shortcut-table td {
+        border-style: solid;
+        border-color: #505050;
+        border-width: 1px 0px 0px 0px;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 15px 10px;
+        word-break: normal;
+    }
+
+    table.shortcut-table td:first-child {
+        min-width: 400px;
+    }
+
+    table.shortcut-table td:last-child {
+        min-width: 500px;
+        font-weight: 500;
+    }
+
+    table.shortcut-table th {
+        border-style: solid;
+        border-color: #505050;
+        border-width: 0px;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    table.shortcut-table .tg-header {
+        color: #e6e6e6;
+        font-size: 22px;
+        text-align: left;
+        vertical-align: top;
+        padding: 15px 0px;
+    }
+
+    table.shortcut-table .tg-subheader {
+        color: #e6e6e6;
+        border-width: 0px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: top
+    }

@@ -1,0 +1,50 @@
+﻿<ContentDialog
+    x:Class="Teeditor.Views.Dialogs.SettingsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Teeditor.Views.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <Grid Width="500">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="CloseBtn" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" 
+                Style="{StaticResource CommonButtonStyle}"
+                Click="CloseBtn_Click">
+            <Button.Content>
+                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                    Glyph="&#xE711;" FontSize="11" />
+            </Button.Content>
+        </Button>
+
+        <TextBlock Text="Window Settings" Grid.Row="0" Grid.Column="0" FontSize="22" FontWeight="Medium"/>
+
+        <muxc:RadioButtons x:Name="ThemeRadioButtons" Grid.Row="1" Grid.ColumnSpan="2" 
+                           MaxColumns="3" Header="Current Theme"
+                           Margin="0,20,0,6">
+            <x:String>Dark</x:String>
+            <x:String>Light</x:String>
+            <x:String>System</x:String>
+        </muxc:RadioButtons>
+
+        <TextBlock x:Name="ThemeTip" Grid.Row="2" Grid.ColumnSpan="2" FontSize="12" Opacity="0.5">
+            <TextBlock.Text>
+                Tip: For better concentration during work, use a dark theme.
+            </TextBlock.Text>
+        </TextBlock>
+
+    </Grid>
+</ContentDialog>

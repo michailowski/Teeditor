@@ -1,0 +1,32 @@
+﻿<toolbar:ToolControl
+    xmlns:toolbar="using:Teeditor.Common.Views.Toolbar"
+    x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Toolbar.QuadsLayerToolControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="37"
+    d:DesignWidth="400">
+
+    <StackPanel Orientation="Horizontal">
+
+        <Button x:Name="AddQuadBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Add Quad (Q)"
+                IsEnabled="{x:Bind ViewModel.IsAddingAllowed, Mode=OneWay}"
+                Click="AddQuadBtn_Click">
+
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=AddQuadBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator
+                    Key="Q" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+    </StackPanel>
+</toolbar:ToolControl>

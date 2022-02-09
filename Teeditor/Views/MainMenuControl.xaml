@@ -1,0 +1,125 @@
+﻿<UserControl
+    x:Class="Teeditor.Views.MainMenuControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    d:DesignHeight="60"
+    d:DesignWidth="500">
+
+    <Grid>
+        <muxc:MenuBar Style="{StaticResource MainMenuStyle}" x:Name="MenuBar" Margin="40,0,0,0" HorizontalAlignment="Left">
+            <muxc:MenuBarItem Style="{StaticResource MainMenuItemStyle}" Title="File">
+                
+                <MenuFlyoutItem x:Name="CreateProjectMenuItem" Text="New Project..." Click="CreateProjectMenuItem_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Add"/>
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                
+                <MenuFlyoutItem x:Name="OpenProjectMenuItem" Text="Open project..." Click="OpenProjectMenuItem_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="OpenFile"/>
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="O"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                
+                <MenuFlyoutSeparator/>
+                
+                <MenuFlyoutItem x:Name="SaveProjectMenuItem" Text="Save" Click="SaveProjectMenuItem_Click"
+                                IsEnabled="{x:Bind Source.IsSaveAllowed, Mode=OneWay}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE74E;"/>
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="S"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                
+                <MenuFlyoutItem x:Name="SaveAllProjectsMenuItem" Text="Save All" Click="SaveAllProjectsMenuItem_Click"
+                                IsEnabled="{x:Bind Source.IsSaveAllowed, Mode=OneWay}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE792;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                
+                <MenuFlyoutItem x:Name="SaveProjectAsMenuItem" Text="Save As..." Click="SaveProjectAsMenuItem_Click"
+                                IsEnabled="{x:Bind Source.IsSaveAllowed, Mode=OneWay}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE792;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                
+                <MenuFlyoutSeparator/>
+                
+                <MenuFlyoutItem Text="Exit">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Menu" Key="F4"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                
+            </muxc:MenuBarItem>
+
+            <muxc:MenuBarItem Title="Edit" Style="{StaticResource MainMenuItemStyle}">
+                
+                <MenuFlyoutItem Text="Undo" Click="UndoMenuItem_Click"
+                                IsEnabled="{x:Bind Source.IsUndoAllowed, Mode=OneWay}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="Z"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                
+                <MenuFlyoutItem Text="Redo" Click="RedoMenuItem_Click"
+                                IsEnabled="{x:Bind Source.IsRedoAllowed, Mode=OneWay}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="Y"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                
+            </muxc:MenuBarItem>
+
+            <muxc:MenuBarItem x:Name="ViewTab" Title="View" Style="{StaticResource MainMenuItemStyle}">
+
+                
+                
+                <MenuFlyoutItem x:Name="ToggleFullScreenBtn" Text="Fullscreen" Click="ToggleFullScreenBtn_Click">
+
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="FullScreen" />
+                    </MenuFlyoutItem.Icon>
+                    
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator 
+                            Modifiers="Control,Shift" 
+                            Key="F" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+
+            </muxc:MenuBarItem>
+
+            <muxc:MenuBarItem x:Name="WindowTab" Title="Window" Style="{StaticResource MainMenuItemStyle}">
+                <MenuFlyoutItem x:Name="SettingsBtn" Text="Settings" Click="SettingsBtn_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Setting"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </muxc:MenuBarItem>
+
+            <muxc:MenuBarItem Title="Help" Style="{StaticResource MainMenuItemStyle}">
+                <MenuFlyoutItem x:Name="ShortcutReferenceBtn" Text="Shortcut Reference" Click="ShortcutReferenceBtn_Click">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xEDA7;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="AboutBtn" Text="About" Click="AboutBtn_Click"/>
+            </muxc:MenuBarItem>
+        </muxc:MenuBar>
+    </Grid>
+</UserControl>

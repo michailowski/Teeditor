@@ -1,0 +1,12 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="ToolbarToolBackground" Color="{ThemeResource SystemChromeLowColor}" />
+    <SolidColorBrush x:Key="ToolbarToggleButtonBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="ToolbarToggleButtonBackgroundChecked" Color="{ThemeResource SystemAccentColorLight3}" />
+    <SolidColorBrush x:Key="ToolbarToggleButtonBackgroundCheckedPointerOver" Color="{ThemeResource SystemAccentColorLight2}" />
+    <SolidColorBrush x:Key="ToolbarButtonBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="ToolbarDividerForeground" Color="{ThemeResource SystemChromeBlackLowColor}" />
+
+</ResourceDictionary>

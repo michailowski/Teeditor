@@ -1,0 +1,94 @@
+﻿<ContentDialog
+    x:Class="Teeditor.Views.Dialogs.ProjectCreateDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Teeditor.Views.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:io="using:Teeditor.Common.Models.IO"
+    mc:Ignorable="d"
+    Title="Create a new Project"
+    PrimaryButtonText="Create"
+    SecondaryButtonText="Cancel"
+    d:DesignHeight="600"
+    d:DesignWidth="1240">
+
+    <ContentDialog.Resources>
+        <ResourceDictionary>
+            
+            <DataTemplate x:Key="CreateProjectDialogListViewTemplate" x:DataType="io:ProjectType">
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.BorderBrush>
+                        <SolidColorBrush Color="{ThemeResource AdditionalColor5}" Opacity=".2" />
+                    </Grid.BorderBrush>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Ellipse x:Name="Ellipse"
+                        Grid.RowSpan="2"
+                        Width ="32"
+                        Height="32"
+                        Margin="6"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Fill="{ThemeResource SystemControlBackgroundBaseMediumBrush}"/>
+
+                    <TextBlock Grid.Column="1" MaxHeight="20"
+                        Text="{x:Bind Name}"
+                        TextWrapping="Wrap"
+                        TextTrimming="CharacterEllipsis"
+                        LineStackingStrategy="MaxHeight"
+                        TextLineBounds="Full"
+                        FontWeight="SemiBold"
+                        Margin="12,6,0,0"/>
+
+                    <TextBlock Grid.Column="2"
+                        Text="{x:Bind Extension}"
+                        FontSize="12"
+                        FontWeight="SemiLight"
+                        Margin="12,10,0,0"
+                        MaxHeight="20">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{ThemeResource SystemAltMediumColor}" Opacity=".6" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
+
+                    <TextBlock Grid.Column="1" Grid.ColumnSpan="2"  MaxHeight="50"
+                        Grid.Row="1"
+                        Text="{x:Bind Description}"
+                        ToolTipService.ToolTip="{x:Bind Description}"
+                        TextWrapping="Wrap"
+                        TextTrimming="CharacterEllipsis"
+                        LineStackingStrategy="MaxHeight"
+                        TextLineBounds="Full"
+                        Margin="12,0,0,12">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{ThemeResource SystemAltMediumColor}" Opacity=".7" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </Grid>
+
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </ContentDialog.Resources>
+
+    <Grid>
+        <ListView x:Name="ProjectTypesList" Grid.Row="1" MaxWidth="700"
+                ItemsSource="{x:Bind ViewModel.ProjectTypes, Mode=OneWay}"
+                SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}"
+                SelectionMode="Single"
+                Style="{StaticResource CreateProjectDialogListViewStyle}"
+                ItemContainerStyle="{StaticResource CreateProjectDialogListViewContainerStyle}" 
+                ItemTemplate="{StaticResource CreateProjectDialogListViewTemplate}"/>
+    </Grid>
+</ContentDialog>

@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/Panelbar/PanelbarIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/Panelbar/AnimationPanelStyles.xaml" />
+        <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/Sidebar/SidebarIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/Sidebar/ExplorerBoxToggleButtonStyles.xaml" />
+        <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/Toolbar/ToolbarIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/MainMenu/MainMenuIcons.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

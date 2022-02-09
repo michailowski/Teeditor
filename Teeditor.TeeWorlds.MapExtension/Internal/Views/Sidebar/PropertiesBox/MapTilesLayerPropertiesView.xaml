@@ -1,0 +1,286 @@
+﻿<UserControl
+    x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Sidebar.PropertiesBox.MapTilesLayerPropertiesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:models="using:Teeditor.TeeWorlds.MapExtension.Internal.Models.Data"
+    xmlns:helpers="using:Teeditor.Common.Helpers"
+    xmlns:ap="using:Teeditor.Common.AttachedProperties"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Teeditor.TeeWorlds.MapExtension/Internal/Resources/Sidebar/SidebarStyles.xaml" />
+                <ResourceDictionary Source="ms-appx:///Resources/Common/CommonNumberBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="1" Grid.RowSpan="9" Background="{ThemeResource PropertiesBoxPropertiesBackground}" />
+
+            <Border Grid.Column="0" Grid.Row="0" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="Name" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="0" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                <TextBox Text="{x:Bind ViewModel.Name, Mode=TwoWay}" />
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="1" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="Width" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="1" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                <muxc:NumberBox Value="{x:Bind ViewModel.Width, Mode=TwoWay}" Minimum="0"/>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="2" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="Height" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="2" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                <muxc:NumberBox Value="{x:Bind ViewModel.Height, Mode=TwoWay}" Minimum="0"/>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="3" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="High detail" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="3" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1" Padding="10,0">
+                <CheckBox IsChecked="{x:Bind ViewModel.IsHighDetail, Mode=TwoWay}" CornerRadius="0"/>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="4" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="Image" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="4" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="34"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox PlaceholderText="None" ItemsSource="{x:Bind ViewModel.Images}" HorizontalAlignment="Stretch"
+                                  SelectedItem="{x:Bind ViewModel.Image, Mode=TwoWay}"
+                                  CornerRadius="0"
+                                  Grid.Column="0">
+
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:MapImage">
+
+                                <TextBlock x:Name="ImageName" Text="{x:Bind Name, Mode=OneWay}" MaxHeight="20" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" LineStackingStrategy="MaxHeight" TextLineBounds="Full" />
+
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+                    </ComboBox>
+
+                    <Button Style="{StaticResource CommonButtonStyle}" Click="ResetImageBtn_Click" Grid.Column="1" Padding="9">
+                        <Button.Content>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE711;" FontSize="11"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="5" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="Color" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="5" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="34"/>
+                        <ColumnDefinition Width="34"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid x:Name="ColorSelectorBackground" Grid.Column="0" Padding="9,8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{ThemeResource SystemChromeAltHighColor}">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.Column="0" Fill="Gray" />
+                        <Rectangle Grid.Row="0" Grid.Column="1" Fill="White" />
+                        <Rectangle Grid.Row="0" Grid.Column="2" Fill="Gray" />
+                        <Rectangle Grid.Row="0" Grid.Column="3" Fill="White" />
+
+                        <Rectangle Grid.Row="1" Grid.Column="0" Fill="White" />
+                        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Gray" />
+                        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White" />
+                        <Rectangle Grid.Row="1" Grid.Column="3" Fill="Gray" />
+
+                    </Grid>
+
+                    <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Padding="9,8">
+
+                        <Button.Content>
+                            <Rectangle Fill="{x:Bind helpers:DataConverterHelper.ColorToBrush(ViewModel.Color), Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        </Button.Content>
+
+                        <Button.Flyout>
+                            <Flyout Placement="RightEdgeAlignedBottom">
+                                <muxc:ColorPicker Color="{Binding Color, Mode=TwoWay}" ColorSpectrumShape="Box" IsMoreButtonVisible="True" IsColorSliderVisible="True" IsColorChannelTextInputVisible="True" IsHexInputVisible="True" IsAlphaEnabled="True" IsAlphaSliderVisible="True" IsAlphaTextInputVisible="True" />
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+
+                    <Button x:Name="ResetColorBtn" Grid.Column="2" Style="{StaticResource CommonButtonStyle}" Click="ResetColorBtn_Click">
+                        <Button.Content>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE711;" FontSize="11"/>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="PickColorBtn" Grid.Column="1" Style="{StaticResource CommonButtonStyle}" Click="PickColorBtn_Click">
+                        <Button.Content>
+                            <PathIcon Data="{StaticResource ResourceKey=ColorPickerIconPath}" />
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="6" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="Shift" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Grid Grid.Column="1" Grid.Row="6">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Border Grid.Column="0" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{StaticResource CommonButtonStyle}" Click="ShiftLayerLeftBtn_Click" Grid.Column="0" Padding="6,9,5,9">
+                            <Button.Content>
+                                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE738;" FontSize="9"/>
+                            </Button.Content>
+                        </Button>
+
+                        <TextBlock Text="X" FontSize="12" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+
+                        <Button Style="{StaticResource CommonButtonStyle}" Click="ShiftLayerRightBtn_Click" Grid.Column="2" Padding="6,9,5,9">
+                            <Button.Content>
+                                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE710;" FontSize="9"/>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="1" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{StaticResource CommonButtonStyle}" Click="ShiftLayerTopBtn_Click" Grid.Column="0" Padding="6,9,5,9">
+                            <Button.Content>
+                                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE738;" FontSize="9"/>
+                            </Button.Content>
+                        </Button>
+
+                        <TextBlock Text="Y" FontSize="12" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+
+                        <Button Style="{StaticResource CommonButtonStyle}" Click="ShiftLayerBottomBtn_Click" Grid.Column="2" Padding="6,9,5,9">
+                            <Button.Content>
+                                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE710;" FontSize="9"/>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Border Grid.Column="0" Grid.Row="7" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,8,0,7">
+                <TextBlock Text="Color env." FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="7" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="34"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ItemsControl x:Name="AllEnvelopesPlug" ItemsSource="{x:Bind ViewModel.Envelopes}" ap:ItemsIndexer.IsEnable="True" Visibility="Collapsed"/>
+
+                    <ComboBox Grid.Column="0" PlaceholderText="None" ItemsSource="{x:Bind ViewModel.GetOnlyColorEnvelopes(ViewModel.Envelopes)}" HorizontalAlignment="Stretch"
+                                  SelectedItem="{x:Bind ViewModel.ColorEnvelope, Mode=TwoWay}"
+                                  CornerRadius="0">
+                        
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:MapEnvelope">
+                                <Grid>
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock x:Name="EnvelopeName" Grid.Column="0" Text="{x:Bind Name, Mode=OneWay}" MaxWidth="100" MaxHeight="20"
+                                               TextWrapping="Wrap" TextTrimming="CharacterEllipsis" LineStackingStrategy="MaxHeight" TextLineBounds="Full" />
+                                    
+                                    <TextBlock x:Name="EnvelopeIndex" Grid.Column="1" 
+                                               Text="{x:Bind EnvelopeIndex.(ap:ItemsIndexer.Index), Mode=OneWay}"
+                                       ap:ItemsIndexer.ItemsCollectionName="AllEnvelopesPlug" 
+                                       ap:ItemsIndexer.NumeroSignText="#"
+                                       ap:ItemsIndexer.Mode="FromOne"/>
+                                </Grid>
+                                
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Button Style="{StaticResource CommonButtonStyle}" Click="ResetColorEnvelopeBtn_Click" Grid.Column="1">
+                        <Button.Content>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE711;" FontSize="11"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="8" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,1,1" Padding="11,6,0,10">
+                <TextBlock Text="Start time" FontSize="12" Foreground="{ThemeResource PropertiesBoxPropertyNameForeground}"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="8" BorderBrush="{ThemeResource PropertiesBoxPropertyBorderBrush}" BorderThickness="0,0,0,1">
+                <muxc:NumberBox Value="{x:Bind ViewModel.ColorEnvelopeOffset, Mode=TwoWay}"/>
+            </Border>
+
+        </Grid>
+    </StackPanel>
+    
+</UserControl>

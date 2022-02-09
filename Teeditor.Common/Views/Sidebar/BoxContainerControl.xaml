@@ -1,0 +1,94 @@
+﻿<UserControl
+    x:Class="Teeditor.Common.Views.Sidebar.BoxContainerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+
+            <MenuFlyout x:Name="MainMenuFlyout" Placement="BottomEdgeAlignedRight">
+                <MenuFlyoutItem x:Name="ChangeDockMenuItem" Text="Change Dock" Click="ChangeDockMenuItem_Click">
+                    <MenuFlyoutItem.Icon>
+                        <PathIcon Data="{ThemeResource ResourceKey=DockChangeIconPath}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="MoveUpMenuItem" Text="Move Up" Click="MoveUpMenuItem_Click">
+                    <MenuFlyoutItem.Icon>
+                        <PathIcon Data="{ThemeResource ResourceKey=MoveUpBoxIconPath}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Name="MoveDownMenuItem" Text="Move Down" Click="MoveDownMenuItem_Click">
+                    <MenuFlyoutItem.Icon>
+                        <PathIcon Data="{ThemeResource ResourceKey=MoveDownBoxIconPath}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </MenuFlyout>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid x:Name="MainGrid" Background="{ThemeResource SidebarBoxBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="35" MaxWidth="35"/>
+            <ColumnDefinition Width="35" MaxWidth="35"/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="HeaderBorder" Grid.Row="0" Grid.ColumnSpan="2" Background="{ThemeResource SidebarBoxHeaderBackground}" Padding="12,0">
+            <TextBlock Text="{x:Bind Label}" FontSize="12" VerticalAlignment="Center"/>
+        </Border>
+
+        <Button Style="{StaticResource SidebarBoxHeaderButtonStyle}" x:Name="CloseBtn" Click="CloseBtn_Click" Grid.Row="0" Grid.Column="1" >
+            <Button.Content>
+                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE8BB;" FontSize="9" VerticalAlignment="Center"/>
+            </Button.Content>
+        </Button>
+
+        <Button Style="{StaticResource SidebarBoxHeaderButtonStyle}" Grid.Row="0" Grid.Column="2">
+            <Button.Content>
+                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE712;" FontSize="16" VerticalAlignment="Center"/>
+            </Button.Content>
+
+            <Button.Flyout>
+                <MenuFlyout x:Name="Menu" Placement="BottomEdgeAlignedRight"/>
+            </Button.Flyout>
+        </Button>
+
+        <Grid x:Name="ContentContainer" Grid.Row="1" Grid.ColumnSpan="3"/>
+
+        <Border x:Name="DropOverlay" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3"
+                Background="{ThemeResource AdditionalColor4}" Visibility="Collapsed">
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle x:Name="OverlayBackground" Grid.RowSpan="2" Fill="{ThemeResource SystemAccentColorLight2}"/>
+                    
+                    <Rectangle x:Name="DropToUp" Grid.Row="0" Width="50" Height="50" Margin="2,2,2,1" Fill="{ThemeResource AdditionalColor4}" AllowDrop="True" 
+                               DragEnter="DropTo_DragEnter" DragLeave="DropTo_DragLeave" DragOver="DropTo_DragOver" Drop="DropToUp_Drop"/>
+                    <PathIcon Data="{ThemeResource ResourceKey=MoveUpBoxIconPath}" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False"/>
+                    
+                    <Rectangle x:Name="DropToDown" Grid.Row="1" Width="50" Height="50" Margin="2,1,2,2" Fill="{ThemeResource AdditionalColor4}" AllowDrop="True" 
+                               DragEnter="DropTo_DragEnter" DragLeave="DropTo_DragLeave" DragOver="DropTo_DragOver" Drop="DropToDown_Drop"/>
+                    <PathIcon Data="{ThemeResource ResourceKey=MoveDownBoxIconPath}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False"/>
+                </Grid>
+            </StackPanel>
+            
+        </Border>
+
+    </Grid>
+</UserControl>

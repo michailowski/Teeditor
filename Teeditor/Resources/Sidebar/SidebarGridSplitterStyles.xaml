@@ -1,0 +1,56 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
+
+    <SolidColorBrush x:Key="SidebarGridSplitterPointerOver" Color="{ThemeResource SystemBaseLowColor}"/>
+    <SolidColorBrush x:Key="SidebarGridSplitterPressed" Color="{ThemeResource SystemChromeMediumHighColor}"/>
+
+    <Style x:Key="SidebarGridSplitterHorizontalStyle" TargetType="controls:GridSplitter">
+        <Setter Property="IsTabStop" Value="True"/>
+        <Setter Property="UseSystemFocusVisuals" Value="True"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="IsFocusEngagementEnabled" Value="True"/>
+        <Setter Property="MinWidth" Value="8"/>
+        <Setter Property="MinHeight" Value="8"/>
+        <Setter Property="Height" Value="8"/>
+        <Setter Property="Margin" Value="0,-8,0,0"/>
+        <Setter Property="Background" Value="{ThemeResource SystemChromeMediumHighColor}"/>
+        <Setter Property="GripperForeground" Value="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:GridSplitter">
+                    <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="GridSplitterStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Target="RootGrid.Background" Value="{ThemeResource SidebarGridSplitterPointerOver}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Target="RootGrid.Background" Value="{ThemeResource SidebarGridSplitterPressed}"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <ContentPresenter.Content>
+                                <TextBlock HorizontalAlignment="Center"
+                                     IsHitTestVisible="False"
+                                     VerticalAlignment="Center"
+                                     Text="&#xE76F;"
+                                     Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"
+                                     FontFamily="Segoe MDL2 Assets">
+                                </TextBlock>
+                            </ContentPresenter.Content>
+                        </ContentPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

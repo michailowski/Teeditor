@@ -1,0 +1,43 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region Properties Box-->
+    <SolidColorBrush x:Key="PropertiesBoxPropertyNameForeground" Color="{ThemeResource SystemChromeHighColor}" />
+    <SolidColorBrush x:Key="PropertiesBoxPropertyBorderBrush" Color="{ThemeResource SystemBaseLowColor}" />
+    <SolidColorBrush x:Key="PropertiesBoxPropertiesBackground" Color="{ThemeResource SystemChromeBlackHighColor}" />
+    <!--#endregion-->
+
+    <!--#region Explorer Box-->
+    <SolidColorBrush x:Key="ExplorerBoxExpandCollapseChevronForeground" Color="{ThemeResource SystemAltMediumColor}" />
+    <SolidColorBrush x:Key="ExplorerBoxSelectionMarkerFill" Color="{ThemeResource SystemBaseMediumColor}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemNumberForeground" Color="{ThemeResource SystemAltMediumColor}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemNameForeground" Color="{ThemeResource SystemAltMediumColor}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemBackground" Color="{ThemeResource SystemChromeLowColor}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemPressedBackground" Color="{ThemeResource SystemChromeLowColor}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemPointerOverBackground" Color="{ThemeResource AdditionalColor6}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemSelectedBackground" Color="{ThemeResource AdditionalColor7}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemSelectedPressedBackground" Color="{ThemeResource AdditionalColor7}" />
+    <SolidColorBrush x:Key="ExplorerBoxGroupItemSelectedPointerOverBackground" Color="{ThemeResource AdditionalColor7}" />
+    <SolidColorBrush x:Key="ExplorerBoxLayerItemNameForeground" Color="{ThemeResource SystemAltMediumColor}" />
+    <SolidColorBrush x:Key="ExplorerBoxLayerItemBackground" Color="{ThemeResource AdditionalColor8}" />
+    <SolidColorBrush x:Key="ExplorerBoxLayerItemPressedBackground" Color="{ThemeResource AdditionalColor9}" />
+    <SolidColorBrush x:Key="ExplorerBoxLayerItemPointerOverBackground" Color="{ThemeResource AdditionalColor10}" />
+    <SolidColorBrush x:Key="ExplorerBoxLayerItemSelectedBackground" Color="{ThemeResource AdditionalColor11}" />
+    <SolidColorBrush x:Key="ExplorerBoxLayerItemSelectedPressedBackground" Color="{ThemeResource AdditionalColor9}" />
+    <SolidColorBrush x:Key="ExplorerBoxLayerItemSelectedPointerOverBackground" Color="{ThemeResource AdditionalColor11}" />
+    <!--#endregion-->
+
+    <!--#region Images Box-->
+    <SolidColorBrush x:Key="ImagesBoxBackground" Color="{ThemeResource SystemChromeLowColor}" />
+    <SolidColorBrush x:Key="ImagesBoxHeaderBackground" Color="{ThemeResource SystemChromeMediumColor}" />
+    <SolidColorBrush x:Key="ImagesBoxImageItemNameForeground" Color="{ThemeResource SystemChromeBlackLowColor}" />
+    <SolidColorBrush x:Key="ImagesBoxImageItemInfoForeground" Color="{ThemeResource SystemChromeBlackLowColor}" />
+
+    <!--#region History Box-->
+    <SolidColorBrush x:Key="HistoryBoxItemNameForeground" Color="{ThemeResource SystemAltMediumColor}" />
+    <SolidColorBrush x:Key="HistoryBoxLastExecutedMarkForeground" Color="{ThemeResource SystemAltMediumColor}" />
+    <SolidColorBrush x:Key="HistoryBoxBorderBrush" Color="{ThemeResource SystemChromeMediumLowColor}" />
+    <!--#endregion-->
+    
+</ResourceDictionary>

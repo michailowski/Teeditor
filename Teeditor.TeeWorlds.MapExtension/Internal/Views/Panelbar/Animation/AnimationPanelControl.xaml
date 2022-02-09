@@ -1,0 +1,471 @@
+﻿<panelbar:PanelControl
+    xmlns:panelbar="using:Teeditor.Common.Views.Panelbar"
+    x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Panelbar.Animation.AnimationPanelControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Teeditor.TeeWorlds.MapExtension.Internal.Views.Panelbar.Animation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:models="using:Teeditor.TeeWorlds.MapExtension.Internal.Models.Data"
+    xmlns:enums="using:Teeditor.TeeWorlds.MapExtension.Internal.Enumerations"
+    xmlns:helpers="using:Teeditor.Common.Helpers" 
+    xmlns:ap="using:Teeditor.Common.AttachedProperties" 
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="800">
+
+    <panelbar:PanelControl.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Resources/Common/CommonNumberBoxStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <MenuFlyout x:Name="SidebarEnvelopeMenuFlyout" Placement="RightEdgeAlignedTop">
+                <MenuFlyoutItem x:Name="AddKeyframeMenuItem" Icon="Add" Text="Add Keyframe" Click="AddKeyframeMenuItem_Click" />
+                <ToggleMenuFlyoutItem x:Name="EnvelopeSyncMenuItem" Text="Is Synchronized">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <PathIcon Data="{StaticResource ResourceKey=IsEnvelopeSynchronizedIconPath}" />
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem x:Name="EnvelopePropertiesMenuItem" Icon="Repair" Text="Properties" Click="EnvelopePropertiesMenuItem_Click" />
+                <MenuFlyoutItem x:Name="RemoveEnvelopeMenuItem" Icon="Delete" Text="Remove" Click="RemoveEnvelopeMenuItem_Click"/>
+            </MenuFlyout>
+
+            <Flyout x:Name="ColorKeyframeFlyout">
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock Text="Timestamp:" Margin="0,0,0,5"/>
+                    <Border x:Name="ColorKeyframeTimeSpanBorder" Background="{ThemeResource PositionKeyframeFlyoutControlsBackground}" Padding="5" Margin="0,0,0,7">
+                        <local:TimeSpanControl x:Name="ColorKeyframeTimeSpan" Value="{Binding Time, Mode=TwoWay}" />
+                    </Border>
+
+                    <TextBlock Text="Color:" Margin="0,0,0,5"/>
+                    <Border Background="{ThemeResource SystemAltLowColor}" Padding="0" Margin="0,0,0,7">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid x:Name="ColorSelectorBackground" Grid.Column="0" 
+                                  Padding="7,7"
+                                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Gray" />
+                                <Rectangle Grid.Row="0" Grid.Column="1" Fill="White" />
+                                <Rectangle Grid.Row="0" Grid.Column="2" Fill="Gray" />
+                                <Rectangle Grid.Row="0" Grid.Column="3" Fill="White" />
+
+                                <Rectangle Grid.Row="1" Grid.Column="0" Fill="White" />
+                                <Rectangle Grid.Row="1" Grid.Column="1" Fill="Gray" />
+                                <Rectangle Grid.Row="1" Grid.Column="2" Fill="White" />
+                                <Rectangle Grid.Row="1" Grid.Column="3" Fill="Gray" />
+                                
+                            </Grid>
+
+                            <Button x:Name="ColorSelectorBtn" Grid.Column="0"
+                                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" 
+                                    VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="7,5">
+                                
+                                <Button.Content>
+                                    <Rectangle Margin="0,2,0,2">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Color, Mode=TwoWay}" />
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Button.Content>
+                                
+                                <Button.Flyout>
+                                    <Flyout>
+                                        <muxc:ColorPicker
+                                                x:Name="ColorPicker"
+                                                Color="{Binding Color, Mode=TwoWay}"
+                                                ColorSpectrumShape="Box"
+                                                IsMoreButtonVisible="True"
+                                                IsColorSliderVisible="True"
+                                                IsColorChannelTextInputVisible="True"
+                                                IsHexInputVisible="True"
+                                                IsAlphaEnabled="True"
+                                                IsAlphaSliderVisible="True"
+                                                IsAlphaTextInputVisible="True"/>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+
+                            <Button x:Name="ColorPickerBtn" Grid.Column="1" 
+                                    Style="{StaticResource CommonButtonStyle}"
+                                    Click="ColorPickerBtn_Click">
+                                
+                                <Button.Content>
+                                    <PathIcon Data="{StaticResource ResourceKey=ColorPickerIconPath}"/>
+                                </Button.Content>
+                                
+                            </Button>
+                        </Grid>
+                    </Border>
+
+                    <Button x:Name="RemoveColorKeyframeBtn" 
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                            Content="Remove" Click="RemoveKeyframeBtn_Click"/>
+
+                </StackPanel>
+            </Flyout>
+
+            <Flyout x:Name="PositionKeyframeFlyout">
+
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock Text="Timestamp:" Margin="0,0,0,5"/>
+                    <Border x:Name="PositionKeyframeTimeSpanBorder" Background="{ThemeResource PositionKeyframeFlyoutControlsBackground}" Padding="5" Margin="0,0,0,7">
+                        <local:TimeSpanControl x:Name="PositionKeyframeTimeSpan" Value="{Binding Time, Mode=TwoWay}" HorizontalAlignment="Left" />
+                    </Border>
+
+                    <muxc:NumberBox Value="{Binding X, Mode=TwoWay}" Header="Position X" SpinButtonPlacementMode="Inline"  ValidationMode="InvalidInputOverwritten" Margin="0,0,0,7"/>
+                    <muxc:NumberBox Value="{Binding Y, Mode=TwoWay}" Header="Position Y" SpinButtonPlacementMode="Inline" ValidationMode="InvalidInputOverwritten" Margin="0,0,0,7"/>
+                    <muxc:NumberBox Value="{Binding Rotate, Mode=TwoWay}" Header="Rotation Angle" SpinButtonPlacementMode="Inline" ValidationMode="InvalidInputOverwritten" Margin="0,0,0,7"/>
+
+                    <Button x:Name="RemovePositionKeyframeBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Remove" Click="RemoveKeyframeBtn_Click" />
+                    
+                </StackPanel>
+            </Flyout>
+
+            <Flyout x:Name="CurveTypeSelectFlyout" Placement="TopEdgeAlignedLeft">
+                <local:EnvelopeSectionControl x:Name="EnvelopeSectionView"/>
+            </Flyout>
+
+        </ResourceDictionary>
+    </panelbar:PanelControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{ThemeResource AnimationControlHeaderHeight}"/>
+            <RowDefinition Height="210" MaxHeight="{ThemeResource AnimationControlContentMaxHeight}"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{ThemeResource AnimationControlSidebarWidth}"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="SidebarHeaderGrid" Grid.Row="0" Grid.Column="0" 
+                Background="{ThemeResource AnimationControlSidebarBackgroundBrush}" 
+                BorderBrush="{ThemeResource AnimationControlSidebarBorderBrush}" 
+                BorderThickness="{ThemeResource AnimationControlSidebarBorderThickness}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="TimeResetBtn" Grid.Column="0" Style="{StaticResource CommonButtonStyle}" Click="TimeResetBtn_Click">
+                <Button.Content>
+                    <PathIcon Data="{StaticResource ResourceKey=AnimationTimeResetIconPath}"/>
+                </Button.Content>
+            </Button>
+
+            <ToggleButton x:Name="PlayPauseBtn" Grid.Column="1"
+                                    Style="{StaticResource CommonToggleButtonStyle}" 
+                                    Background="{ThemeResource SystemChromeMediumColor}" 
+                                    ToolTipService.ToolTip="Start/Pause Animation" 
+                                    IsChecked="{x:Bind ViewModel.IsStarted, Mode=TwoWay}">
+
+                <ToggleButton.Content>
+                    <Grid>
+                        <PathIcon Data="{StaticResource ResourceKey=AnimationPlayIconPath}" Visibility="{x:Bind helpers:DataConverterHelper.BoolToVisibilityInverted(ViewModel.IsStarted), Mode=OneWay}"/>
+                        <PathIcon Data="{StaticResource ResourceKey=AnimationPauseIconPath}" Visibility="{x:Bind helpers:DataConverterHelper.BoolToVisibility(ViewModel.IsStarted), Mode=OneWay}"/>
+                    </Grid>
+                </ToggleButton.Content>
+
+            </ToggleButton>
+
+            <local:TimeSpanControl Value="{x:Bind ViewModel.Time, Mode=TwoWay}" Grid.Column="2"/>
+
+            <Button x:Name="AddAnimationBtn" Grid.Column="3" Style="{StaticResource CommonButtonStyle}">
+                
+                <Button.Content>
+                    <PathIcon Data="{StaticResource ResourceKey=AddAnimationIconPath}"/>
+                </Button.Content>
+                
+                <Button.Flyout>
+                    <MenuFlyout Placement="TopEdgeAlignedLeft">
+                        
+                        <MenuFlyoutItem x:Name="AddColorEnvelopeMenuItem" Text="Add Color Animation" Click="AddColorEnvelopeMenuItem_Click">
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon Data="{StaticResource ResourceKey=AddColorAnimationIconPath}"/>
+                            </MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                        
+                        <MenuFlyoutItem x:Name="AddPositionEnvelopeMenuItem" Text="Add Position Animation" Click="AddPositionEnvelopeMenuItem_Click">
+                            <MenuFlyoutItem.Icon>
+                                <PathIcon Data="{StaticResource ResourceKey=AddPositionAnimationIconPath}"/>
+                            </MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                        
+                    </MenuFlyout>
+                </Button.Flyout>
+
+            </Button>
+
+        </Grid>
+
+        <ScrollViewer x:Name="EnvelopesListScroll"
+                        Grid.Row="1" Grid.Column="0" 
+                        Style="{StaticResource CommonScrollViewerStyle}"
+                        BorderBrush="{ThemeResource AnimationControlSidebarBorderBrush}" 
+                        BorderThickness="{ThemeResource AnimationControlSidebarBorderThickness}"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto"
+                        ViewChanged="EnvelopesListScroll_ViewChanged">
+            
+            <ItemsControl x:Name="SidebarItems" ItemsSource="{x:Bind ViewModel.EnvelopesContainer.Items, Mode=OneWay}" Margin="0,0,0,11" 
+                          ap:ItemsIndexer.IsEnable="True">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+
+                        <ItemsStackPanel x:Name="SidebarItemsContainer" 
+                                           Width="200" Orientation="Vertical"
+                                           Background="{ThemeResource SystemAltLowColor}"/>
+                        
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+
+                    <DataTemplate x:DataType="models:MapEnvelope">
+                        <Grid x:Name="SidebarEnvelopeHeader"
+                                    Background="{ThemeResource EnvelopeHeaderBackground}" 
+                                    BorderThickness="{ThemeResource EnvelopeHeaderBorderThickness}" 
+                                    BorderBrush="{ThemeResource EnvelopeHeaderBorderBrush}"
+                                    Padding="{ThemeResource EnvelopeHeaderPadding}"
+                                    Height="{ThemeResource EnvelopeHeaderHeight}"
+                                    PointerPressed="SidebarEnvelopeHeader_PointerPressed"
+                                    PointerEntered="SidebarEnvelopeHeader_PointerEntered"
+                                    PointerExited="SidebarEnvelopeHeader_PointerExited">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="EnvelopeName" Grid.Column="0"
+                                            Foreground="{ThemeResource EnvelopeHeaderForeground}"
+                                            FontSize="12" 
+                                            VerticalAlignment="Center" Text="{x:Bind Name, Mode=OneWay}" 
+                                            MaxHeight="20" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" 
+                                            LineStackingStrategy="MaxHeight" TextLineBounds="Full" />
+
+                            <Grid x:Name="EnvelopeTypeBadge" Grid.Column="1" 
+                                    VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                    Width="{ThemeResource EnvelopeTypeBadgeWidth}" 
+                                    Background="{ThemeResource EnvelopeTypeBadgeBackground}" 
+                                    Padding="{ThemeResource EnvelopeTypeBadgePadding}" 
+                                    Margin="{ThemeResource EnvelopeTypeBadgeMargin}">
+                                
+                                <PathIcon Data="{StaticResource ResourceKey=ColorAnimationIconPath}" Foreground="{ThemeResource EnvelopeHeaderForeground}" Visibility="{x:Bind helpers:DataConverterHelper.VisibileIfEqual(Type, enums:EnvelopeType.Color)}" />
+                                <PathIcon Data="{StaticResource ResourceKey=PositionAnimationIconPath}" Foreground="{ThemeResource EnvelopeHeaderForeground}" Visibility="{x:Bind helpers:DataConverterHelper.VisibileIfEqual(Type, enums:EnvelopeType.Position)}" />
+                            
+                            </Grid>
+
+                            <TextBlock x:Name="EnvelopeIndex" Grid.Column="2" 
+                                       VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                       Margin="0,0,5,0" FontSize="11" Foreground="{ThemeResource EnvelopeHeaderForeground}"
+                                       Text="{x:Bind EnvelopeIndex.(ap:ItemsIndexer.Index)}" 
+                                       ap:ItemsIndexer.ItemsCollectionName="SidebarItems" 
+                                       ap:ItemsIndexer.NumeroSignText="#"
+                                       ap:ItemsIndexer.Mode="FromOne"/>
+
+                            <Grid x:Name="BtnsGrid" Grid.Column="3" Width="0">
+                                <Button x:Name="AddKeyframeBtn" Grid.Column="3" 
+                                        Width="15" 
+                                        Style="{StaticResource CommonTransparentButtonStyle}" Click="AddKeyframeBtn_Click">
+
+                                    <Button.Content>
+                                        <PathIcon Data="{StaticResource ResourceKey=AddKeyframeIconPath}" />
+                                    </Button.Content>
+
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="TimelineScroll" 
+                      Grid.Row="0" Grid.Column="1"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                      HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                      Background="{ThemeResource SystemChromeMediumColor}">
+            
+            <canvas:CanvasVirtualControl x:Name="TimelineCanvas" 
+                                         Width="{x:Bind ViewModel.ContentWidth, Mode=OneWay}" 
+                                         MinWidth="{x:Bind ContentScroll.ViewportWidth, Mode=OneWay}" 
+                                         VerticalAlignment="Stretch" 
+                                         ClearColor="Transparent"
+                                         RegionsInvalidated="TimelineCanvas_RegionsInvalidated"/>
+            
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="TimeCursorScroll" 
+                      Grid.Row="0" Grid.Column="1"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                      HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                      PointerWheelChanged="TimeCursorScroll_PointerWheelChanged"
+                      Background="Transparent">
+
+            <Grid x:Name="TimeCursorGrid" 
+                    VerticalAlignment="Stretch"
+                    Padding="8,0,8,0"
+                    Width="{x:Bind ViewModel.ContentWidth, Mode=OneWay}"
+                    MinWidth="{x:Bind ContentScroll.ViewportWidth, Mode=OneWay}"
+                    Background="Transparent"
+                    PointerPressed="TimeCursorGrid_PointerPressed">
+
+                <Button x:Name="TimeCursor" IsHitTestVisible="True"
+                            Style="{StaticResource CommonTransparentButtonStyle}"
+                            Foreground="{ThemeResource TimelineTimeCursorForeground}"
+                            Margin="{x:Bind ViewModel.GetMarginByTime(ViewModel.Time), Mode=OneWay}"
+                            ManipulationMode="TranslateX"
+                            ManipulationDelta="TimeCursor_ManipulationDelta">
+
+                    <Button.Content>
+                        <PathIcon Data="{StaticResource ResourceKey=TimeIndicatorIconPath}"/>
+                    </Button.Content>
+
+                </Button>
+
+            </Grid>
+
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="ContentScroll" 
+                      Grid.Row="1" Grid.Column="1" 
+                      Style="{StaticResource CommonScrollViewerStyle}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                      HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden"
+                      ViewChanged="ContentScroll_ViewChanged">
+            
+            <canvas:CanvasVirtualControl x:Name="ContentCanvas" 
+                                         Width="{x:Bind ViewModel.ContentWidth, Mode=OneWay}" Height="{x:Bind ViewModel.ContentHeight, Mode=OneWay}"
+                                         MinWidth="{x:Bind ContentScroll.ViewportWidth, Mode=OneWay}" Margin="0,0,0,11"
+                                         VerticalAlignment="Top"
+                                         PointerMoved="ContentCanvas_PointerMoved"
+                                         PointerPressed="ContentCanvas_PointerPressed"
+                                         PointerReleased="ContentCanvas_PointerReleased"
+                                         RegionsInvalidated="ContentCanvas_RegionsInvalidated"
+                                         PointerWheelChanged="ContentCanvas_PointerWheelChanged"
+                                         PointerExited="ContentCanvas_PointerExited"/>
+            
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="TimeCursorLineScroll" 
+                      Grid.Row="1" Grid.Column="1"
+                      IsHitTestVisible="False"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                      HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+
+            <Grid x:Name="TimeCursorLineGrid" 
+                    VerticalAlignment="Stretch"
+                    Padding="14,0,14,0"
+                    Width="{x:Bind ViewModel.ContentWidth, Mode=OneWay}" 
+                    MinWidth="{x:Bind ContentScroll.ViewportWidth, Mode=OneWay}">
+                
+                <Rectangle x:Name="TimeCursorLine" 
+                            HorizontalAlignment="Left" Width="1"
+                            IsHitTestVisible="False" 
+                            Fill="{ThemeResource TimelineTimeCursorLineFill}"
+                            Margin="{x:Bind ViewModel.GetMarginByTime(ViewModel.Time), Mode=OneWay}"/>
+                
+            </Grid>
+
+        </ScrollViewer>
+
+        <Grid x:Name="KeyframeBoostersGrid" Grid.Row="1" Grid.Column="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="LeftKeyframeBoosterGrid" Grid.Column="0" Opacity="0" Width="30" Height="{x:Bind ContentScroll.ViewportHeight, Mode=OneWay}" IsHitTestVisible="false"
+                    PointerEntered="LeftKeyframeBoosterGrid_PointerEntered" 
+                    PointerExited="LeftKeyframeBoosterGrid_PointerExited"
+                    Background="{ThemeResource LeftKeyframeBoosterBackground}">
+
+                <PathIcon x:Name="BoosterLeftIcon" Data="{StaticResource BoosterLeftIconPath}" VerticalAlignment="Center" Margin="10,-8,0,0">
+                    <PathIcon.Triggers>
+                        <EventTrigger RoutedEvent="PathIcon.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation EnableDependentAnimation="True" Storyboard.TargetName="BoosterLeftIcon" 
+                                                     Storyboard.TargetProperty="Opacity" From="0" To="0.5" Duration="0:0:0.2" 
+                                                     AutoReverse="True" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </PathIcon.Triggers>
+
+                    <PathIcon.RenderTransform>
+                        <TranslateTransform Y="0" />
+                    </PathIcon.RenderTransform>
+                </PathIcon>
+                
+            </Grid>
+
+            <Grid x:Name="RightKeyframeBoosterGrid" Grid.Column="2"
+                    Width="{ThemeResource KeyframeBoosterWidth}" Height="{x:Bind ContentScroll.ViewportHeight, Mode=OneWay}"
+                    PointerEntered="RightKeyframeBoosterGrid_PointerEntered" 
+                    PointerExited="RightKeyframeBoosterGrid_PointerExited"
+                    IsHitTestVisible="false" Opacity="0" 
+                    Background="{ThemeResource RightKeyframeBoosterBackground}">
+
+                <PathIcon x:Name="BoosterRightIcon" Data="{StaticResource BoosterRightIconPath}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-8,10,0">
+                    <PathIcon.Triggers>
+                        <EventTrigger RoutedEvent="PathIcon.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation EnableDependentAnimation="True" Storyboard.TargetName="BoosterRightIcon" 
+                                                     Storyboard.TargetProperty="Opacity" From="0" To="0.5" Duration="0:0:0.2" 
+                                                     AutoReverse="True" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </PathIcon.Triggers>
+
+                    <PathIcon.RenderTransform>
+                        <TranslateTransform Y="0" />
+                    </PathIcon.RenderTransform>
+                </PathIcon>
+            </Grid>
+            
+        </Grid>
+
+    </Grid>
+</panelbar:PanelControl>

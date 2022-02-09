@@ -1,0 +1,53 @@
+﻿<UserControl
+    x:Class="Teeditor.Views.EditorControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:helpers="using:Teeditor.Common.Helpers"
+    mc:Ignorable="d"
+    Unloaded="EditorControl_Unloaded"
+    d:DesignHeight="900"
+    d:DesignWidth="1200">
+
+    <Grid x:Name="OuterGrid">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--
+                <Button x:Name="AddQuadBtn" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Right"
+                            ToolTipService.ToolTip="Add New Quad"
+                            ToolTipService.Placement="Bottom"
+                            Style="{StaticResource CommonButtonStyle}" 
+                            Visibility="{x:Bind Source.GetVisibilityForQuadsLayer(Source.Map.Current.Layer), Mode=OneWay, FallbackValue='Collapsed'}"
+                            Click="{x:Bind Source.AddQuadBtn_Click}">
+                    <Button.Content>
+                        <PathIcon Data="{ThemeResource ResourceKey=AddQuadIconPath}"/>
+                    </Button.Content>
+                </Button>-->
+
+
+        <canvas:CanvasAnimatedControl x:Name="MainCanvas" Grid.Row="0" Update="MainCanvas_Update" Draw="MainCanvas_Draw" ClearColor="Black"
+                IsFixedTimeStep="True" UseSharedDevice="True" CreateResources="MainCanvas_CreateResources"
+                SizeChanged="MainCanvas_SizeChanged"/>
+
+        <Border x:Name="MainCanvasLoader" Grid.Row="0" 
+                Background="{ThemeResource SystemAltLowColor}" 
+                IsHitTestVisible="False"
+                Opacity="{x:Bind helpers:DataConverterHelper.BoolToDouble(Source.CurrentTab.Data.IsLoading, '1', '0'), Mode=OneWay}">
+
+            <Border.OpacityTransition>
+                <ScalarTransition Duration="00:00:01" />
+            </Border.OpacityTransition>
+
+        </Border>
+
+    </Grid>
+</UserControl>

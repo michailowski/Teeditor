@@ -1,0 +1,81 @@
+﻿<toolbar:ToolControl
+    xmlns:toolbar="using:Teeditor.Common.Views.Toolbar"
+    x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Toolbar.LayerSelectionToolControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="37"
+    d:DesignWidth="400">
+
+    <StackPanel Orientation="Horizontal">
+
+        <Button x:Name="FlipHorizontalBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Flip Selection Horizontal (N)"
+                IsEnabled="{x:Bind ViewModel.IsTransformationAllowed, Mode=OneWay}"
+                Click="FlipHorizontalBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=FlipHorizontalBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator
+                    Key="N" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+        <Button x:Name="FlipVerticalBtn" Style="{StaticResource ToolbarButtonStyle}" 
+                ToolTipService.ToolTip="Flip Selection Vertical (M)" 
+                IsEnabled="{x:Bind ViewModel.IsTransformationAllowed, Mode=OneWay}" 
+                Click="FlipVerticalBtn_Click">
+
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=FlipVerticalBtnIconPath}" />
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator Key="M" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+        <Button x:Name="RotateCounterClockwiseBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Rotate Selection Counter Clockwise (R)"
+                IsEnabled="{x:Bind ViewModel.IsTransformationAllowed, Mode=OneWay}"
+                Click="RotateCounterClockwiseBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=RotateCounterClockwiseBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator
+                    Key="R" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+        <Button x:Name="RotateClockwiseBtn"
+                Style="{StaticResource ToolbarButtonStyle}"
+                ToolTipService.ToolTip="Rotate Selection Clockwise (T)"
+                IsEnabled="{x:Bind ViewModel.IsTransformationAllowed, Mode=OneWay}"
+                Click="RotateClockwiseBtn_Click">
+            
+            <Button.Content>
+                <PathIcon Data="{StaticResource ResourceKey=RotateClockwiseBtnIconPath}"/>
+            </Button.Content>
+
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator
+                    Key="T" />
+            </Button.KeyboardAccelerators>
+
+        </Button>
+
+    </StackPanel>
+</toolbar:ToolControl>
