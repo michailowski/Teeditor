@@ -137,8 +137,12 @@ namespace Teeditor
 
                 Application.Current.Exit();
             }
+            else if (result == ContentDialogResult.Secondary)
+            {
+                Application.Current.Exit();
+            }
 
-            e.Handled = result == ContentDialogResult.None;
+            e.Handled = true;
         }
 
         private async Task<StorageFile> PickSaveFile(string extension, string suggestedName)
