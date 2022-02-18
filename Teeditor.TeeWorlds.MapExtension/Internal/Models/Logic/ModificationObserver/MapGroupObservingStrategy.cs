@@ -40,7 +40,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.ModificationObse
                 }
             }
 
-            (Group.Layers as INotifyCollectionChanged).CollectionChanged += Layers_CollectionChanged;
+            Group.Layers.CollectionChanged += Layers_CollectionChanged;
         }
 
         private void Layers_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

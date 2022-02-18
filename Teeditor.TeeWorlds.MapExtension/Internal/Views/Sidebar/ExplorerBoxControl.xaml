@@ -79,7 +79,7 @@
 
     <ListView x:Name="GroupsListView" MinWidth="235" Padding="0,0,0,20"
                           ItemContainerStyle="{StaticResource ListViewGroupItemContainerStyle}"
-                          ItemsSource="{x:Bind ViewModel.GroupedLayersContainer.Groups}"
+                          ItemsSource="{x:Bind ViewModel.GroupedLayersContainer.Groups, Mode=OneWay}"
                           AllowDrop="True" CanReorderItems="True"
                           PreviewKeyDown="GroupsListView_PreviewKeyDown">
 

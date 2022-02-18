@@ -24,7 +24,6 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data
         private bool _useClipping;
         private Rect _clip;
         private bool _hasLayers;
-        private ObservableCollection<MapLayer> _layers;
 
         [ModificationCommandLabel("Group name changed")]
         public string Name
@@ -61,7 +60,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data
             set => Set(ref _clip, value, nameof(_clip));
         }
 
-        public ReadOnlyObservableCollection<MapLayer> Layers { get; }
+        public ObservableCollection<MapLayer> Layers { get; }
 
         public Guid Guid { get; } = Guid.NewGuid();
 
@@ -111,8 +110,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data
 
         public MapGroup()
         {
-            _layers = new ObservableCollection<MapLayer>();
-            Layers = new ReadOnlyObservableCollection<MapLayer>(_layers);
+            Layers = new ObservableCollection<MapLayer>();
         }
 
         private string GetName()
@@ -125,7 +123,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data
 
         public void Add(MapLayer layer)
         {
-            _layers.Add(layer);
+            Layers.Add(layer);
             HasLayers = Layers.Count > 0;
 
             layer.VisualChanged += Layer_VisualChanged;
@@ -134,7 +132,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data
 
         public void Insert(int index, MapLayer layer)
         {
-            _layers.Insert(index, layer);
+            Layers.Insert(index, layer);
             HasLayers = Layers.Count > 0;
 
             layer.VisualChanged += Layer_VisualChanged;
@@ -143,7 +141,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data
 
         public void Remove(MapLayer layer)
         {
-            _layers.Remove(layer);
+            Layers.Remove(layer);
             HasLayers = Layers.Count > 0;
 
             if (layer is MapTilesLayer tilesLayer)

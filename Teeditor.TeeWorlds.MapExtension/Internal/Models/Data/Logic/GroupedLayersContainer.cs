@@ -5,17 +5,13 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.Logic
 {
     internal class GroupedLayersContainer
     {
-        private ObservableCollection<MapGroup> _groups;
-
-        public ReadOnlyObservableCollection<MapGroup> Groups { get; }
+        public ObservableCollection<MapGroup> Groups { get; }
 
         public event EventHandler<VisualChangedEventArgs> VisualChanged;
 
         public GroupedLayersContainer()
         {
-            _groups = new ObservableCollection<MapGroup>();
-
-            Groups = new ReadOnlyObservableCollection<MapGroup>(_groups);
+            Groups = new ObservableCollection<MapGroup>();
         }
 
         public void Add(MapGroup group)
@@ -23,15 +19,16 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.Logic
             group.VisualChanged += Group_VisualChanged;
             VisualChanged?.Invoke(this, new VisualChangedEventArgs() { ChangedItem = this });
 
-            _groups.Add(group);
+            Groups.Add(group);
         }
 
         public void Remove(MapGroup group)
+
         {
             group.VisualChanged -= Group_VisualChanged;
             VisualChanged?.Invoke(this, new VisualChangedEventArgs() { ChangedItem = this });
 
-            _groups.Remove(group);
+            Groups.Remove(group);
         }
 
         private void Group_VisualChanged(object sender, VisualChangedEventArgs e)

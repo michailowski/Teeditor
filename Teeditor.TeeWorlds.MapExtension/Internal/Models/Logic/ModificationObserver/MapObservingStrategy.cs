@@ -34,7 +34,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.ModificationObse
                 Add(group, new MapGroupObservingStrategy());
             }
 
-            (Map.GroupedLayersContainer.Groups as INotifyCollectionChanged).CollectionChanged += Groups_CollectionChanged;
+            Map.GroupedLayersContainer.Groups.CollectionChanged += Groups_CollectionChanged;
         }
 
         private void EnvelopesInit()
