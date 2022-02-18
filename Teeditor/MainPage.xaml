@@ -32,10 +32,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
             </Grid.ColumnDefinitions>
-            
-            <Image Source="Assets/Square44x44Logo.png"
+
+            <Image Source="Assets/Square18x18.Title-logo.png"
                Grid.Column="1" HorizontalAlignment="Left"
-               Width="20" Height="20" Margin="12,0"/>
+               Width="18" Height="18" Margin="13,0,0,0"/>
             
         </Grid>
 
