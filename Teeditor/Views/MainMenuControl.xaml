@@ -42,21 +42,17 @@
                         <KeyboardAccelerator Modifiers="Control" Key="S"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                
-                <MenuFlyoutItem x:Name="SaveAllProjectsMenuItem" Text="Save All" Click="SaveAllProjectsMenuItem_Click"
-                                IsEnabled="{x:Bind Source.IsSaveAllowed, Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE792;"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                
+
                 <MenuFlyoutItem x:Name="SaveProjectAsMenuItem" Text="Save As..." Click="SaveProjectAsMenuItem_Click"
                                 IsEnabled="{x:Bind Source.IsSaveAllowed, Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE792;" />
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xEA35;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                
+
+                <MenuFlyoutItem x:Name="SaveAllProjectsMenuItem" Text="Save All" Click="SaveAllProjectsMenuItem_Click"
+                                IsEnabled="{x:Bind Source.IsSaveAllowed, Mode=OneWay}"/>
+
                 <MenuFlyoutSeparator/>
                 
                 <MenuFlyoutItem Text="Exit">
