@@ -112,7 +112,7 @@
                             <Grid x:Name="ExpandCollapseChevron"
                                     Grid.Column="0"
                                     Width="Auto"
-                                    Visibility="{x:Bind helpers:DataConverterHelper.BoolToVisibility(IsVisible), Mode=OneWay}"
+                                    Visibility="{x:Bind helpers:DataConverterHelper.BoolToVisibility(HasLayers), Mode=OneWay}"
                                     Background="Transparent">
 
                                 <TextBlock Foreground="{ThemeResource ExplorerBoxExpandCollapseChevronForeground}"
