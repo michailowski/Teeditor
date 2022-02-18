@@ -38,7 +38,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Image x:Name="ExtendedSplashImage" Source="ms-appx:///Assets/splash-1.scale-200.png" Stretch="UniformToFill"/>
+                <Image x:Name="ExtendedSplashImage" Source="ms-appx:///Assets/SplashScreen.scale-200.png" Stretch="UniformToFill"/>
                 <TextBlock Text="Teeditor v1.0 Beta, © Stanislaw Michailowski" FontSize="10" Foreground="#fff" VerticalAlignment="Bottom" Margin="10"/>
 
                 <Grid>
