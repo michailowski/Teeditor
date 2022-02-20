@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="97c76a95-69bf-475a-9e25-d9cfb75fd529"
-    Publisher="CN=smich"
+    Name="39914MichailowskiSolution.Teeditor"
+    Publisher="CN=BA4D5237-FB0E-4154-A594-B431910C29C0"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="97c76a95-69bf-475a-9e25-d9cfb75fd529" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="5bcd77e1-9176-445d-966d-a76b8c809d42" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Teeditor</DisplayName>
-    <PublisherDisplayName>smich</PublisherDisplayName>
+    <PublisherDisplayName>Michailowski Solutions</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -34,7 +34,7 @@
       EntryPoint="Teeditor.App">
       <uap:VisualElements
         DisplayName="Teeditor"
-        Description="Teeditor"
+        Description="Teeditor is an open-source software for editing TeeWorlds maps."
         BackgroundColor="transparent" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\Square71x71Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" ShortName="Teeditor">
           <uap:ShowNameOnTiles>
