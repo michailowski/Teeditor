@@ -523,7 +523,7 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.7.0</Version>
+      <Version>2.7.1-prerelease.211026002</Version>
     </PackageReference>
     <PackageReference Include="Win2D.uwp">
       <Version>1.26.0</Version>
