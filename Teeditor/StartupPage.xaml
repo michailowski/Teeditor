@@ -54,22 +54,25 @@
                             <SolidColorBrush Color="Black" Opacity=".15" />
                         </Border.Background>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="0.65*"/>
-                            </Grid.ColumnDefinitions>
-
+                        <Grid HorizontalAlignment="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="180" />
+                                </Grid.ColumnDefinitions>
+                            
                             <Grid Grid.Column="0" HorizontalAlignment="Right">
+                                
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="50"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Grid.Row="0"
+                                <TextBlock x:Name="OpenRecentLabel" Grid.Row="0"
                                             Style="{ThemeResource SubtitleTextBlockStyle}"
                                             Foreground="{ThemeResource SystemChromeWhiteColor}"
                                             Text="Open recent"
+                                            Visibility="Collapsed"
                                             Padding="15,10,0,0"/>
 
                                 <ListView x:Name="MostRecentlyList" Grid.Row="1" 
@@ -90,10 +93,11 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock
+                                <TextBlock x:Name="GetStartedLabel"
                                     Grid.Row="0"
                                     Text="Get started"
                                     Padding="0,10,0,0"
+                                    HorizontalAlignment="Center"
                                     Foreground="{ThemeResource SystemChromeWhiteColor}"
                                     Style="{ThemeResource SubtitleTextBlockStyle}"/>
 
@@ -115,8 +119,8 @@
                                     </Button.Foreground>
                                 </Button>
 
+                                </Grid>
                             </Grid>
-
                         </Grid>
                     </Border>
                 </Grid>

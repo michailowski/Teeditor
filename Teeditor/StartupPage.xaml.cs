@@ -49,8 +49,17 @@ namespace Teeditor
             // Restore the saved session state if necessary
             RestoreState(loadState);
 
+            PrepareView();
             SetMostRecentlyListSource();
         }
+
+        private async void PrepareView()
+        {
+            var hasItems = await MostRecentlyUsedList.HasItems();
+            OpenRecentLabel.Visibility = hasItems ? Visibility.Visible : Visibility.Collapsed;
+            GetStartedLabel.HorizontalAlignment = hasItems ? HorizontalAlignment.Left : HorizontalAlignment.Center;
+        }
+
         private async void SetMostRecentlyListSource()
         {
             MostRecentlyList.ItemsSource = await MostRecentlyUsedList.GetAsync();
