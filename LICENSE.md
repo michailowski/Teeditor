@@ -673,20 +673,17 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 
----------------------- End of GNU GPL 3 license ----------------------
-
-Dependencies:
+### Dependencies:
 
 This project has dependencies on other open source projects. Some of them also require a license definition:
 
----------------------- Start of Iconic.Zlib.NetstandardUwp license ----------------------
+- Iconic.Zlib.NetstandardUwp license:
+```
+The ZLIB library, available as Ionic.Zlib.dll or as part of DotNetZip,
+is a ported-then-modified version of jzlib. The following applies to jzlib:
 
-*The ZLIB library, available as Ionic.Zlib.dll or as part of DotNetZip,
-is a ported-then-modified version of jzlib.  The following applies to jzlib:
+JZlib 0.0.\* were released under the GNU LGPL license. Later, we have switched over to a BSD-style license.
 
-JZlib 0.0.* were released under the GNU LGPL license.  Later, we have switched
-over to a BSD-style license.
-------------------------------------------------------------------------
 Copyright (c) 2000,2001,2002,2003 ymnk, JCraft,Inc. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -712,5 +709,4 @@ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
----------------------- End of Iconic.Zlib.NetstandardUwp license ----------------------
+```
