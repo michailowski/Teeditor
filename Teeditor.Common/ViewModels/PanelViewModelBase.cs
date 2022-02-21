@@ -15,7 +15,7 @@ namespace Teeditor.Common.ViewModels
         {
             Label = "Default label";
             MenuText = "Default menu text";
-            MenuIcon = new PathIcon() { Data = UserInterface.PathMarkupToGeometry((string)Application.Current.Resources["ExplorerBoxIconPath"]) };
+            MenuIcon = new PathIcon() { Data = UserInterface.PathMarkupToGeometry((string)Application.Current.Resources["DefaultIconPath"]) };
         }
 
         public abstract void SetTab(ITab tab);
