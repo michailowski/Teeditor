@@ -45,7 +45,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.Panelbar.Animati
 
         private EnvelopesContainer _envelopesContainer;
 
-        private int _hoveredEnvelopeIndex;
+        private int _hoveredEnvelopeIndex = -1;
         private MapEnvelope _hoveredEnvelope;
 
         private int _invalidatedEnvelopeIndex = -1;
@@ -521,7 +521,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.Panelbar.Animati
 
         private void DetectHoveredEnvelope()
         {
-            var envelopeIndex = (int)(_pointerPosition.Y / _envelopeHeight);
+            var envelopeIndex = _pointerPosition.Y >= 0 ? (int)(_pointerPosition.Y / _envelopeHeight) : -1;
 
             if (envelopeIndex >= _envelopesContainer.Items.Count)
             {
@@ -530,7 +530,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.Panelbar.Animati
                 return;
             }
 
-            if (envelopeIndex == _hoveredEnvelopeIndex)
+            if (envelopeIndex == _hoveredEnvelopeIndex || envelopeIndex < 0)
                 return;
 
             _hoveredEnvelopeIndex = envelopeIndex;
