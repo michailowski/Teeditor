@@ -63,6 +63,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.Panelbar.Animati
                     return b - a;
             }
         }
+
         private float DeltaY
         {
             get
@@ -90,7 +91,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.Panelbar.Animati
         private Point GetStartTangCoords()
         {
             var kX = _scale / DeltaX;
-            var kY = _scale / DeltaY;
+            var kY = DeltaY > 0 ? _scale / DeltaY : 0;
 
             var x = _leftEnvPoint.OutTangentdx[_channelNumber] * kX;
             var y = _scale - CalcUtilities.ToFloat(_leftEnvPoint.OutTangentdy[_channelNumber]) * kY;
@@ -119,7 +120,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Logic.Panelbar.Animati
         private Point GetEndTangCoords()
         {
             var kX = _scale / DeltaX;
-            var kY = _scale / DeltaY;
+            var kY = DeltaY > 0 ? _scale / DeltaY : 0;
 
             var x = _scale + _rightEnvPoint.InTangentdx[_channelNumber] * kX;
             var y = -CalcUtilities.ToFloat(_rightEnvPoint.InTangentdy[_channelNumber]) * kY;
