@@ -23,35 +23,26 @@
                     </Grid.BorderBrush>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="35"/>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Ellipse x:Name="Ellipse"
-                        Grid.RowSpan="2"
-                        Width ="32"
-                        Height="32"
-                        Margin="6"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Fill="{ThemeResource SystemControlBackgroundBaseMediumBrush}"/>
-
-                    <TextBlock Grid.Column="1" MaxHeight="20"
+                    <TextBlock Grid.Column="0" MaxHeight="20"
                         Text="{x:Bind Name}"
                         TextWrapping="Wrap"
                         TextTrimming="CharacterEllipsis"
                         LineStackingStrategy="MaxHeight"
                         TextLineBounds="Full"
                         FontWeight="SemiBold"
+                        Foreground="{ThemeResource SystemAltMediumColor}"
                         Margin="12,6,0,0"/>
 
-                    <TextBlock Grid.Column="2"
+                    <TextBlock Grid.Column="1"
                         Text="{x:Bind Extension}"
                         FontSize="12"
                         FontWeight="SemiLight"
@@ -62,7 +53,7 @@
                         </TextBlock.Foreground>
                     </TextBlock>
 
-                    <TextBlock Grid.Column="1" Grid.ColumnSpan="2"  MaxHeight="50"
+                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2"  MaxHeight="50"
                         Grid.Row="1"
                         Text="{x:Bind Description}"
                         ToolTipService.ToolTip="{x:Bind Description}"
