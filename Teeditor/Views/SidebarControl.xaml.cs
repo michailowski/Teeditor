@@ -323,9 +323,9 @@ namespace Teeditor.Views
         private void VerticalSplitter_OnManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             if (Dock == SidebarDock.Left)
-                ItemsGrid.Width = ItemsGrid.ActualWidth + e.Delta.Translation.X;
+                ItemsGrid.Width = Math.Max(ItemsGrid.ActualWidth + e.Delta.Translation.X, 0);
             else if (Dock == SidebarDock.Right)
-                ItemsGrid.Width = ItemsGrid.ActualWidth - e.Delta.Translation.X;
+                ItemsGrid.Width = Math.Max(ItemsGrid.ActualWidth - e.Delta.Translation.X, 0);
         }
 
         private void VerticalSplitter_OnManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
