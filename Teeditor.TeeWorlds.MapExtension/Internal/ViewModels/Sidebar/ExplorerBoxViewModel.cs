@@ -35,7 +35,8 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.ViewModels.Sidebar
             Label = "Explorer";
             MenuText = "Explorer Box";
             MenuIcon = new PathIcon() { Data = UserInterface.PathMarkupToGeometry((string)Application.Current.Resources["ExplorerBoxIconPath"]) };
-            Dock = SidebarDock.Left;
+            DefaultDock = SidebarDock.Left;
+            DefaultActive = true;
 
             _tilesLayerFactory = new MapTilesLayerFactory();
             _quadsLayerFactory = new MapQuadsLayerFactory();

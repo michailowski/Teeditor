@@ -30,7 +30,8 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.ViewModels.Sidebar
             Label = "Images";
             MenuText = "Images Box";
             MenuIcon = new PathIcon() { Data = UserInterface.PathMarkupToGeometry((string)Application.Current.Resources["ImagesBoxIconPath"]) };
-            Dock = SidebarDock.Left;
+            DefaultDock = SidebarDock.Left;
+            DefaultActive = false;
         }
 
         public override void SetTab(ITab tab)

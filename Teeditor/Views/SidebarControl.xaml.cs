@@ -94,7 +94,7 @@ namespace Teeditor.Views
             if (items == null)
                 return;
 
-            var activeItems = items.Where(x => x.Visibility == Visibility.Visible).ToList();
+            var activeItems = items.Where(x => x.Visibility == Visibility.Visible).OrderBy(x => x.ViewModel.Index).ToList();
 
             for (int i = 0; i < activeItems.Count; i++)
             {
@@ -156,6 +156,22 @@ namespace Teeditor.Views
             }
         }
 
+        private void ResetIndiciesSettings()
+        {
+            var leftDockItems = Source.GetItemsByDock(SidebarDock.Left);
+            var rightDockItems = Source.GetItemsByDock(SidebarDock.Right);
+
+            for (int i = 0; i < leftDockItems.Count; i++)
+            {
+                leftDockItems[i].ViewModel.Index = i;
+            }
+
+            for (int i = 0; i < rightDockItems.Count; i++)
+            {
+                rightDockItems[i].ViewModel.Index = i;
+            }
+        }
+
         #endregion
 
         #region Source Event Handlers
@@ -203,6 +219,7 @@ namespace Teeditor.Views
                 ItemsGrid.Children.Add(e.Box);
             }
 
+            ResetIndiciesSettings();
             ResetItems();
             ResetVisibility();
             ResetSplitters();
@@ -213,6 +230,7 @@ namespace Teeditor.Views
             if (e.Box.ViewModel.Dock != Dock)
                 return;
 
+            ResetIndiciesSettings();
             ResetItems();
             ResetVisibility();
         }
@@ -259,6 +277,7 @@ namespace Teeditor.Views
                 return;
 
             box.ToggleDock();
+            ResetIndiciesSettings();
         }
 
         private void DropPlace_DragEnter(object sender, DragEventArgs e)

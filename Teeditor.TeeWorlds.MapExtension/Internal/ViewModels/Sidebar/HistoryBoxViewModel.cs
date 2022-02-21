@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using Teeditor.Common;
 using Teeditor.Common.Models.Commands;
 using Teeditor.Common.Models.Sidebar;
 using Teeditor.Common.Models.Tab;
@@ -12,16 +11,6 @@ using Windows.UI.Xaml.Controls;
 
 namespace Teeditor.TeeWorlds.MapExtension.Internal.ViewModels.Sidebar
 {
-    //public class CommandAddedEventArgs : EventArgs
-    //{
-    //    public IUndoRedoableCommand Command { get; private set; }
-
-    //    public CommandAddedEventArgs(IUndoRedoableCommand command)
-    //    {
-    //        Command = command;
-    //    }
-    //}
-
     internal class HistoryBoxViewModel : BoxViewModelBase
     {
         private CommandManager _commandManager;
@@ -40,7 +29,8 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.ViewModels.Sidebar
             Label = "History";
             MenuText = "History Box";
             MenuIcon = new PathIcon() { Data = UserInterface.PathMarkupToGeometry((string)Application.Current.Resources["HistoryBoxIconPath"]) };
-            Dock = SidebarDock.Right;
+            DefaultDock = SidebarDock.Right;
+            DefaultActive = false;
         }
 
         public override void SetTab(ITab tab)

@@ -34,6 +34,8 @@ namespace Teeditor.Common.Views.Sidebar
             DragStarting += BoxControl_DragStarting;
             DropCompleted += BoxControl_DropCompleted;
 
+            Visibility = _viewModel.IsActive ? Visibility.Visible : Visibility.Collapsed;
+
             _contentPropertyChangedCallbackToken = RegisterPropertyChangedCallback(ContentProperty, PropertyChangedCallback);
             RegisterPropertyChangedCallback(VisibilityProperty, PropertyChangedCallback);
         }
@@ -46,6 +48,7 @@ namespace Teeditor.Common.Views.Sidebar
             }
             else if (dp == VisibilityProperty)
             {
+                _viewModel.IsActive = Visibility == Visibility.Visible;
                 VisibilityChanged?.Invoke(this, EventArgs.Empty);
             }
         }

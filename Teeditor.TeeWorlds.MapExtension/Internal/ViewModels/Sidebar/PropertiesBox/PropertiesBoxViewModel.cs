@@ -22,7 +22,8 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.ViewModels.Sidebar
             Label = "Properties";
             MenuText = "Properties Box";
             MenuIcon = new PathIcon() { Data = UserInterface.PathMarkupToGeometry((string)Application.Current.Resources["PropertiesBoxIconPath"]) };
-            Dock = SidebarDock.Right;
+            DefaultDock = SidebarDock.Right;
+            DefaultActive = false;
         }
 
         public override void SetTab(ITab tab)

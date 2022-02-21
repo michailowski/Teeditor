@@ -1,7 +1,5 @@
 ﻿<sidebar:BoxControl
     xmlns:sidebar="using:Teeditor.Common.Views.Sidebar"
-    Tag="Images"
-    Visibility="Collapsed"
     x:Class="Teeditor.TeeWorlds.MapExtension.Internal.Views.Sidebar.ImagesBoxControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

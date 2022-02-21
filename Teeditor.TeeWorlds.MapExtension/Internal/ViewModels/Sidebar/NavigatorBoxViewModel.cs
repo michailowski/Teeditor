@@ -48,7 +48,8 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.ViewModels.Sidebar
             Label = "Navigator";
             MenuText = "Navigator Box";
             MenuIcon = new PathIcon() { Data = UserInterface.PathMarkupToGeometry((string)Application.Current.Resources["NavigatorBoxIconPath"]) };
-            Dock = SidebarDock.Right;
+            DefaultDock = SidebarDock.Right;
+            DefaultActive = false;
         }
 
         public override void SetTab(ITab tab)
