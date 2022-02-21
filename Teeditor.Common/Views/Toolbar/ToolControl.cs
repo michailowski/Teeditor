@@ -28,7 +28,10 @@ namespace Teeditor.Common.Views.Toolbar
             DragStarting += ToolControl_DragStarting;
             DropCompleted += ToolControl_DropCompleted;
 
+            Visibility = _viewModel.IsActive ? Visibility.Visible : Visibility.Collapsed;
+
             _contentPropertyChangedCallbackToken = RegisterPropertyChangedCallback(ContentProperty, PropertyChangedCallback);
+            RegisterPropertyChangedCallback(VisibilityProperty, PropertyChangedCallback);
         }
 
         private void PropertyChangedCallback(DependencyObject sender, DependencyProperty dp)
@@ -36,6 +39,10 @@ namespace Teeditor.Common.Views.Toolbar
             if (dp == ContentProperty)
             {
                 PrepareContainer();
+            }
+            else if (dp == VisibilityProperty)
+            {
+                _viewModel.IsActive = Visibility == Visibility.Visible;
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Teeditor.Common.Models.Toolbar;
 using Teeditor.ViewModels.Toolbar;
 using Teeditor.Views.Toolbar.Tools;
@@ -67,7 +68,9 @@ namespace Teeditor.Views
 
             Tools.Children.Add(_mainToolControl);
 
-            foreach (var tool in Source.Tools)
+            var orderedTools = Source.Tools.OrderBy(x => x.ViewModel.Index);
+
+            foreach (var tool in orderedTools)
             {
                 Tools.Children.Add(tool);
             }

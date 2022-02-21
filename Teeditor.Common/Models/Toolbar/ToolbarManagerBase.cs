@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
 using Teeditor.Common.Models.Tab;
 using Teeditor.Common.Views.Toolbar;
 using Teeditor.ViewModels;
@@ -15,9 +16,8 @@ namespace Teeditor.Common.Models.Toolbar
 
         public ToolbarManagerBase()
         {
-            Items.CollectionChanged += Items_CollectionChanged;
-
             AddCommonItems();
+            Items.CollectionChanged += Items_CollectionChanged;
         }
 
         private void AddCommonItems()
@@ -56,6 +56,8 @@ namespace Teeditor.Common.Models.Toolbar
 
         private void Tool_DropToRightNeeded(object sender, ToolControl e)
         {
+            ReorderByIndicies();
+
             var tool = (ToolControl)sender;
 
             Items.Remove(e);
@@ -64,11 +66,15 @@ namespace Teeditor.Common.Models.Toolbar
 
             Items.Insert(toolIndex + 1, e);
 
+            ResetIndiciesSettings();
+
             ItemOrderChanged?.Invoke(this, new ToolbarItemChangedEventArgs(e));
         }
 
         private void Tool_DropToLeftNeeded(object sender, ToolControl e)
         {
+            ReorderByIndicies();
+
             var tool = (ToolControl)sender;
 
             Items.Remove(e);
@@ -77,7 +83,33 @@ namespace Teeditor.Common.Models.Toolbar
 
             Items.Insert(toolIndex, e);
 
+            ResetIndiciesSettings();
+
             ItemOrderChanged?.Invoke(this, new ToolbarItemChangedEventArgs(e));
+        }
+
+        private void ReorderByIndicies()
+        {
+            for (int write = 0; write < Items.Count; write++)
+            {
+                for (int sort = 0; sort < Items.Count - 1; sort++)
+                {
+                    if (Items[sort].ViewModel.Index > Items[sort + 1].ViewModel.Index)
+                    {
+                        var temp = Items[sort + 1];
+                        Items[sort + 1] = Items[sort];
+                        Items[sort] = temp;
+                    }
+                }
+            }
+        }
+
+        private void ResetIndiciesSettings()
+        {
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Items[i].ViewModel.Index = i;
+            }
         }
     }
 }
