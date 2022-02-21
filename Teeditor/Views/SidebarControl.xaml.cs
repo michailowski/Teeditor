@@ -94,9 +94,11 @@ namespace Teeditor.Views
             if (items == null)
                 return;
 
-            for (int i = 0; i < items.Count; i++)
+            var activeItems = items.Where(x => x.Visibility == Visibility.Visible).ToList();
+
+            for (int i = 0; i < activeItems.Count; i++)
             {
-                items[i].SetValue(Grid.RowProperty, i);
+                activeItems[i].SetValue(Grid.RowProperty, i);
             }
         }
 
