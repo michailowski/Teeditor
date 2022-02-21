@@ -2,6 +2,7 @@
 using Windows.Storage;
 using Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO.Payload;
 using Teeditor.Common.Models.IO;
+using Teeditor.TeeWorlds.MapExtension.Internal.Enumerations;
 
 namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO
 {
@@ -11,7 +12,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO
 
         protected override void ProcessCreating()
         {
-            Payload = new MapFilePayload();
+            Payload = new MapFilePayload(PayloadType.Creating);
         }
 
         protected override async Task ProcessLoading()

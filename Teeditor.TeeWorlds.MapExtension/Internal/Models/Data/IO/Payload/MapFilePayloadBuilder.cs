@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Teeditor.TeeWorlds.MapExtension.Internal.DataTransferObjects;
+using Teeditor.TeeWorlds.MapExtension.Internal.Enumerations;
 using Windows.Storage.Streams;
 
 namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO.Payload
@@ -9,8 +10,8 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO.Payload
         private MapFilePayload _payload;
         private MapFilePayloadPartAddingStrategy _currentPartAddingStrategy;
 
-        public MapFilePayloadBuilder()
-            => _payload = new MapFilePayload();
+        public MapFilePayloadBuilder(PayloadType payloadType)
+            => _payload = new MapFilePayload(payloadType);
 
         public void SetPartAddingStrategy(MapFilePayloadPartAddingStrategy strategy)
         {

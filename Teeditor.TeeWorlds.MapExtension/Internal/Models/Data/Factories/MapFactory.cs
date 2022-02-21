@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Numerics;
 using Teeditor.TeeWorlds.MapExtension.Internal.DataTransferObjects;
+using Teeditor.TeeWorlds.MapExtension.Internal.Enumerations;
 using Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO.Payload;
-using Teeditor.TeeWorlds.MapExtension.Internal.Utilities;
 using Windows.UI;
 
 namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.Factories
@@ -35,7 +35,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.Factories
 
         public Map Create(MapFilePayload payload)
         {
-            if (payload.Items.InfoDTO == null)
+            if (payload.Type == PayloadType.Creating)
             {
                 return Create();
             }

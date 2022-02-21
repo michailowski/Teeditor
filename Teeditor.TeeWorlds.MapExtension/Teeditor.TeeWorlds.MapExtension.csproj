@@ -124,6 +124,7 @@
     <Compile Include="Internal\Behaviors\GroupsListViewBehavior.cs" />
     <Compile Include="Internal\Behaviors\LayerItemListViewBehavior.cs" />
     <Compile Include="Internal\Behaviors\LayersListViewBehavior.cs" />
+    <Compile Include="Internal\Enumerations\PayloadType.cs" />
     <Compile Include="Internal\Models\Data\Logic\ImageLoadedData.cs" />
     <Compile Include="Internal\Models\Logic\Commands\TilesPaintCommand.cs" />
     <Compile Include="Internal\DataTransferObjects\MapVersionDTO.cs" />

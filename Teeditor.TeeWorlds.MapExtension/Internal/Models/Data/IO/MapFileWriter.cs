@@ -26,7 +26,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO
         {
             _destinationStream = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
 
-            _payloadBuilder = new MapFilePayloadBuilder();
+            _payloadBuilder = new MapFilePayloadBuilder(PayloadType.Saving);
             _itemTypes = new Dictionary<ItemType, List<int>>();
 
             await Prepare(map);

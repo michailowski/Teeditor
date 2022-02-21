@@ -28,7 +28,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data.IO
         {
             _sourceStream = await storageFile.OpenAsync(FileAccessMode.Read);
 
-            _payloadBuilder = new MapFilePayloadBuilder();
+            _payloadBuilder = new MapFilePayloadBuilder(PayloadType.Loading);
 
             using (var inputStream = _sourceStream.GetInputStreamAt(0))
             {
