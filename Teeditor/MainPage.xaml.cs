@@ -11,6 +11,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI;
 using Windows.UI.Core.Preview;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -26,6 +27,8 @@ namespace Teeditor
         {
             InitializeComponent();
             InitializeViewModels();
+            InitializeTitlebarButtonsStyles();
+
 
             Window.Current.SetTitleBar(TitleBar);
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += MainPage_CloseRequested;
@@ -48,6 +51,17 @@ namespace Teeditor
             MainMenu.Source = new MainMenuViewModel(tabsContainer);
             Tabs.Source = new TabsViewModel(tabsContainer);
             Tabs.Source.PropertyChanged += TabsSource_PropertyChanged;
+        }
+
+        private void InitializeTitlebarButtonsStyles()
+        {
+            ApplicationView appView = ApplicationView.GetForCurrentView();
+
+            appView.TitleBar.BackgroundColor = Colors.Transparent;
+            appView.TitleBar.ButtonBackgroundColor = (Color)Application.Current.Resources["SystemChromeBlackMediumLowColor"];
+            appView.TitleBar.ButtonForegroundColor = Colors.DarkGray;
+            appView.TitleBar.ButtonInactiveBackgroundColor = appView.TitleBar.ButtonBackgroundColor;
+            appView.TitleBar.ButtonInactiveForegroundColor = Colors.DarkSlateGray;
         }
 
         private void TabsSource_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

@@ -95,6 +95,7 @@ namespace Teeditor
             appView.TitleBar.ButtonBackgroundColor = Colors.Transparent;
             appView.TitleBar.ButtonForegroundColor = Colors.DarkGray;
             appView.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            appView.TitleBar.ButtonInactiveForegroundColor = Colors.DarkGray;
             appView.TitleBar.InactiveBackgroundColor = Colors.Transparent;
         }
 
