@@ -6,7 +6,7 @@ namespace Teeditor.TeeWorlds.MapExtension.Internal.Models.Data
     internal abstract class MapEnvelopePoint : MapItem
     {
         protected TimeSpan _time;
-        private CurveType _curveType;
+        private CurveType _curveType = CurveType.Linear;
         protected int[] _values;
         protected int[] _inTangentdx;
         protected int[] _inTangentdy;
