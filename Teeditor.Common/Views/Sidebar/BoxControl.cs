@@ -34,6 +34,7 @@ namespace Teeditor.Common.Views.Sidebar
             DragStarting += BoxControl_DragStarting;
             DropCompleted += BoxControl_DropCompleted;
 
+            MinWidth = 220;
             Visibility = _viewModel.IsActive ? Visibility.Visible : Visibility.Collapsed;
 
             _contentPropertyChangedCallbackToken = RegisterPropertyChangedCallback(ContentProperty, PropertyChangedCallback);
