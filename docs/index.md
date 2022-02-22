@@ -13,7 +13,7 @@ The program is only compatible with the Windows 10 operating system with a minim
 ### Version
 Current public version: [v1.0.0.0-beta](https://github.com/michailowski/Teeditor/releases/tag/v1.0.0.0).
 
-### Comparing the technology stack
+### Tech stack comparing
 
 |  | Original game client | Teeditor |
 | --- | --- | --- |
