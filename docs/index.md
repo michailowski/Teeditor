@@ -10,7 +10,11 @@ It is distributed through the [Microsoft Windows Store](https://www.microsoft.co
 ### Compatibility
 The program is only compatible with the Windows 10 operating system with a minimum version 17763.0. 
 
+### Version
+Current public version: [v1.0.0.0-beta](https://github.com/michailowski/Teeditor/releases/tag/v1.0.0.0).
+
 ### Comparing the technology stack
+
 |  | Original game client | Teeditor |
 | --- | --- | --- |
 | **Language** | C++ | C#, C++/CX |
@@ -21,4 +25,5 @@ The program is only compatible with the Windows 10 operating system with a minim
 The source code is distributed under the [GPL-3.0 License](https://github.com/michailowski/Teeditor/blob/master/LICENSE.md).
 
 ### Support
+Any support on your part will be very welcome! [Become a sponsor of the project](https://github.com/sponsors/michailowski)!\
 For any questions or suggestions, please contact [Michailowski](https://github.com/michailowski).
