@@ -1,4 +1,4 @@
-<p align="center"><img width="100%" src="images/banner_animated.svg"></p>
+<p align="center"><img width="100%" src="images/banner.gif"></p>
 
 Teeditor is an open-source program for editing [TeeWorlds](https://github.com/teeworlds/teeworlds/) (a retro 2D multiplayer shooter) maps and ~~maybe something else~~.\
 It is a separate product, associated with the original sources of the game only indirectly (images of default tilesets, the structure of the .map file).\
