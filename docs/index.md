@@ -2,15 +2,20 @@
 
 ### About
 **Teeditor** is an open-source program for editing [TeeWorlds](https://github.com/teeworlds/teeworlds/) (a retro 2D multiplayer shooter) maps.\
-In a sense, it is a port of the original TeeWorlds map editor from C++ and OpenGL (SDL2.0)
-to C#, C++ /CX and DirectX 11 (UWP, [Win2D](https://github.com/microsoft/Win2D), [DirectXTK](https://github.com/microsoft/DirectXTK)).\
-`It is a separate product, associated with the original sources of the game only indirectly (images of default tilesets, the structure of the .map file).`
+`It is a separate product, associated with the original sources of the game only indirectly. E.g. images of default tilesets, the structure of the .map file.`
 
 ### Distribution
 It is distributed through the [Microsoft Windows Store](https://www.microsoft.com/store/productId/9N4ZR48Q22HR).
 
 ### Compatibility
 The program is only compatible with the Windows 10 operating system with a minimum version 17763.0. 
+
+### Comparing the technology stack
+|  | Original game client | Teeditor |
+| --- | --- | --- |
+| **Language** | C++ | C#, C++/CX |
+| **Graphics API** | OpenGL ([SDL 2.0](https://github.com/libsdl-org/SDL)) | DirectX 11 ([Win2D](https://github.com/microsoft/Win2D), [DirectXTK](https://github.com/microsoft/DirectXTK)) |
+| **Platform** | Game | UWP |
 
 ### License
 The source code is distributed under the [GPL-3.0 License](https://github.com/michailowski/Teeditor/blob/master/LICENSE.md).
