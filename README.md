@@ -82,8 +82,11 @@ Licensed under the GPL-3.0 License. Please refer to [LICENSE.md](https://github.
 > The power of my computer didn't allow me to play big games, so I stumbled upon TeeWorlds. The only thing I don't remember exactly is how I downloaded Visual Studio that way. 
 > I guess I was just wondering what "Source" meant in the link on the download page and what to do with those files. 
 > The first thing I programmed at the time was a modified version of the client - a bot for Instagib that fired a laser beam the moment it crossed the 
-> line from Tee to the aiming cursor. I didn't distribute it, but I played on the sICTF mod servers for a long time and never got noticed or banned. Well, ![Sorry emoticon](https://cdn.discordapp.com/emojis/395754069953609729.webp?size=32&quality=lossless).
-**— Stanislaw Michailowski**
+> line from Tee to the aiming cursor. I didn't distribute it, but I played on the sICTF mod servers for a long time and never got noticed or banned.
+>  
+> Well, ![Sorry emoticon](https://i.postimg.cc/4xCWS5k1/sorry-emoticon.png)
+> 
+> **— Stanislaw Michailowski**
 
 ### Support
 Any support on your part will be very welcome! [Become a sponsor of the project](https://github.com/sponsors/michailowski)!\
