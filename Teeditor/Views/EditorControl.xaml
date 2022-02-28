@@ -16,23 +16,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <!--
-                <Button x:Name="AddQuadBtn" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Right"
-                            ToolTipService.ToolTip="Add New Quad"
-                            ToolTipService.Placement="Bottom"
-                            Style="{StaticResource CommonButtonStyle}" 
-                            Visibility="{x:Bind Source.GetVisibilityForQuadsLayer(Source.Map.Current.Layer), Mode=OneWay, FallbackValue='Collapsed'}"
-                            Click="{x:Bind Source.AddQuadBtn_Click}">
-                    <Button.Content>
-                        <PathIcon Data="{ThemeResource ResourceKey=AddQuadIconPath}"/>
-                    </Button.Content>
-                </Button>-->
-
 
         <canvas:CanvasAnimatedControl x:Name="MainCanvas" Grid.Row="0" Update="MainCanvas_Update" Draw="MainCanvas_Draw" ClearColor="Black"
                 IsFixedTimeStep="True" UseSharedDevice="True" CreateResources="MainCanvas_CreateResources"
